@@ -21,15 +21,9 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              {
-                "glob": "**/*",
-                "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
-                "output": "/assets/"
-              }
+              "src/assets"
             ],
             "styles": [
-              "src/theme.less",
               "src/styles.css"
             ],
             "scripts": []
@@ -129,6 +123,6 @@
   },
   "defaultProject": "CatislandWeb",
   "cli": {
-    "analytics": "a357b9ad-c3b9-4274-b9a4-a4556b7b7b02"
+    "analytics": "90c8ff57-024d-492f-8444-3b4ac45baf34"
   }
 }
