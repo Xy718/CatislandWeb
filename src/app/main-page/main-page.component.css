@@ -1,0 +1,14 @@
+  .topic-card {
+    max-width: 660px;
+    widows: 100%;
+  }
+  
+  .topic-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+  .btn-icon{
+    margin-top: -2px;
+    display: inline-block;
+  }
