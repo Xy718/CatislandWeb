@@ -1,14 +1,20 @@
-  .topic-card {
+.topic-card {
     max-width: 660px;
-    widows: 100%;
-  }
+    width: 100%;
+    margin-bottom: 10px;
+}
   
-  .topic-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+.topic-header-image {
     background-size: cover;
-  }
+}
 
-  .btn-icon{
+.btn-icon-like{
+    margin-right: 3px;
     margin-top: -2px;
     display: inline-block;
-  }
+}
+.btn-icon-share{
+    margin-right: 3px;
+    margin-top: -3px;
+    display: inline-block;
+}

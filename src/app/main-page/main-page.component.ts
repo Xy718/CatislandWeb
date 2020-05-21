@@ -1,3 +1,4 @@
+import { topics } from './../model/topic';
 import { Component, OnInit } from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
 
@@ -7,7 +8,7 @@ import {DomSanitizer} from '@angular/platform-browser';
   styleUrls: ['./main-page.component.css']
 })
 export class MainPageComponent implements OnInit {
-
+  topics=topics;
   constructor() { }
 
   ngOnInit() {
