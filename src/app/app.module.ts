@@ -6,10 +6,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TopToolbarComponent } from './top-toolbar/top-toolbar.component';
+import { FooterToolbarComponent } from './footer-toolbar/footer-toolbar.component';
 @NgModule({
    declarations: [
       AppComponent,
-      TopToolbarComponent
+      TopToolbarComponent,
+      FooterToolbarComponent
    ],
    imports: [
       AppRoutingModule,
