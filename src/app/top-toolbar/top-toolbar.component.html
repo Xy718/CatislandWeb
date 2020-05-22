@@ -1,12 +1,14 @@
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
 	<div class="content">
-			<img width="40" alt="Angular Logo"
-			src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==" />
-		<span>CatIsland象牙塔</span>
-		<div class="spacer"></div>
-		<a aria-label="Angular on twitter" target="_blank" rel="noopener" href="https://twitter.com/angular"
-			title="Twitter">
+		<a class="headLeft" [routerLink]="['/']" >
+			<img id="pro_logo_1" width="40" src="../../assets/img/catisland_logo_1.svg" />
+			<span>CatIsland-象牙塔</span>
+		</a>
+		<div class="spacer">
+			
+		</div>
+		<a [routerLink]="['/user']" title="我的">
 			<img id="user-logo" src="../../assets/img/xy718_logo.jpg">
 		</a>
 	</div>

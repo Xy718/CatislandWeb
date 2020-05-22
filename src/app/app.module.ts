@@ -15,13 +15,15 @@ import { AppComponent } from './app.component';
 import { TopToolbarComponent } from './top-toolbar/top-toolbar.component';
 import { FooterToolbarComponent } from './footer-toolbar/footer-toolbar.component';
 import { MainPageComponent } from './main-page/main-page.component';
+import { UserPanelComponent } from './user-panel/user-panel.component';
 
 @NgModule({
    declarations: [
       AppComponent,
       TopToolbarComponent,
       FooterToolbarComponent,
-      MainPageComponent
+      MainPageComponent,
+      UserPanelComponent
    ],
    imports: [
       AppRoutingModule,

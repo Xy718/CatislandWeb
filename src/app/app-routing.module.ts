@@ -1,3 +1,4 @@
+import { UserPanelComponent } from './user-panel/user-panel.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MainPageComponent } from './main-page/main-page.component';
@@ -5,6 +6,7 @@ import { MainPageComponent } from './main-page/main-page.component';
 
 const routes: Routes = [
   {path:'',component:MainPageComponent},
+  {path:'user',component:UserPanelComponent},
 ];
 
 @NgModule({
