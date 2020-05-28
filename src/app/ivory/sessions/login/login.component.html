@@ -7,16 +7,16 @@
     <mat-card-content>
       <form class="form-field-full" [formGroup]="reactiveForm">
         <mat-form-field appearance="outline">
-          <mat-label>Username</mat-label>
-          <input matInput placeholder="Simple placeholder" formControlName="username" required>
-          <mat-error *ngIf="reactiveForm.get('username').invalid">Please enter username</mat-error>
+          <mat-label>Username/Email/PhoneNumber</mat-label>
+          <input matInput placeholder="告诉我你的账号呀" formControlName="username" required>
+          <mat-error *ngIf="reactiveForm.get('username').invalid">你账号都不说?</mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
           <mat-label>Password</mat-label>
-          <input matInput placeholder="Simple placeholder" type="password"
+          <input matInput placeholder="宁的密码" type="password"
                  formControlName="password" required>
-          <mat-error *ngIf="reactiveForm.get('password').invalid">Please enter password</mat-error>
+          <mat-error *ngIf="reactiveForm.get('password').invalid">密码呀!</mat-error>
         </mat-form-field>
 
         <div class="m-y-16" fxLayout="row" fxLayoutAlign="space-between center">

@@ -30,12 +30,9 @@ import { MainPageComponent } from '../shared/components/main-page/main-page.comp
     BrowserModule,
     FontAwesomeModule,
     IvoryRoutingModule,
-    MatCheckboxModule,
-    MatCardModule,
     RouterModule,
     ReactiveFormsModule,
-    SharedModule,
-    MatButtonModule
+    SharedModule
   ],
   declarations: [
     LoginComponent,
