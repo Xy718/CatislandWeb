@@ -1,12 +1,32 @@
+h6 {
+    font: 600 1rem/2.375em "Source Sans Pro", sans-serif;
+    font-style: normal;
+    font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    font-variant-numeric: normal;
+    font-variant-east-asian: normal;
+    font-weight: 600;
+    font-stretch: normal;
+    font-size: 1rem;
+    line-height: 2.375em;
+    font-family: "Source Sans Pro", sans-serif;
+}
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import 'styles/bootstrap.min.css';
+@import 'styles/main.css';
 @import 'styles/themes';
-@import 'styles/grid';
-@import 'styles/helpers';
-@import 'styles/plugins';
-@import 'styles/custom';
-
-*{
+@import 'styles/fontawesome/fontawesome-all.css';
+@import 'styles/linearicons/linearicons.css';
+// @import 'styles/grid';
+// @import 'styles/helpers';
+// @import 'styles/plugins';
+// @import 'styles/custom';
+@import 'styles/xy.css';
+body{
     font-family: "PingFang SC", "Lantinghei SC", "Microsoft YaHei", "HanHei SC", "Helvetica Neue", "Open Sans", Arial
     , "Hiragino Sans GB", "微软雅黑", STHeiti, "WenQuanYi Micro Hei",'Courier New', Courier,SimSun, sans-serif, monospace;
+}
+.xy-hidden{
+    display: none;
 }

@@ -72,7 +72,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     // MatExpansionModule,
     // MatGridListModule,
     MatIconModule,
-    // MatInputModule,
+    MatInputModule,
     // MatListModule,
     // MatMenuModule,
     // MatNativeDateModule,

@@ -1,8 +1,6 @@
 import { UserPanelComponent } from 'src/app/shared/components/user-panel/user-panel.component';
 import { SharedModule } from './../shared/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCheckboxModule } from '@angular/material/checkbox';
 import { LoginComponent } from './sessions/login/login.component';
 import { IvoryRoutingModule } from './ivory-routing.module';
 import { NgModule } from '@angular/core';
@@ -14,7 +12,6 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { MatCardModule } from '@angular/material/card';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TopToolbarComponent } from '../shared/components/top-toolbar/top-toolbar.component';

@@ -1,0 +1,22 @@
+.sprite {
+    display: inline-block;
+    vertical-align: text-top;
+    height: 16px;
+    width: 16px;
+    background-repeat: no-repeat;
+}
+.sprite-24 {
+    transform: scale(1.2);
+    padding: 0px;
+    margin-top: 2px;
+}
+
+.head-logo-white {
+    color: aliceblue;
+    font-size: large;
+}
+
+.head-logo-yello {
+    color: #ffca28;
+    font-size: large;
+}
