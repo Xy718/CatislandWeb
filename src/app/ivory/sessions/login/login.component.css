@@ -1,0 +1,16 @@
+
+.mat-progress-spinner circle, .mat-spinner circle {
+    stroke: #fff!important;
+}
+.mat-spinner, .mat-spinner svg{
+    width: 34px!important;
+    height: 34px!important;
+}
+
+.mat-spinner{
+    margin: 1.7px 0px;
+}
+
+#loginBtn{
+    text-align: -webkit-center;
+}

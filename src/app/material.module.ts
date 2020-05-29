@@ -78,7 +78,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     // MatNativeDateModule,
     // MatPaginatorModule,
     // MatProgressBarModule,
-    // MatProgressSpinnerModule,
+    MatProgressSpinnerModule,
     MatRadioModule,
     // MatRippleModule,
     // MatSelectModule,
