@@ -17,6 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TopToolbarComponent } from '../shared/components/top-toolbar/top-toolbar.component';
 import { FooterToolbarComponent } from '../shared/components/footer-toolbar/footer-toolbar.component';
 import { MainPageComponent } from '../shared/components/main-page/main-page.component';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   exports:[
@@ -29,7 +30,8 @@ import { MainPageComponent } from '../shared/components/main-page/main-page.comp
     IvoryRoutingModule,
     RouterModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'})
   ],
   declarations: [
     LoginComponent,
