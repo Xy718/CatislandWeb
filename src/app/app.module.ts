@@ -3,10 +3,6 @@ import { IvoryRoutingModule } from './ivory/ivory-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule,APP_INITIALIZER } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
-import {MatCardModule} from '@angular/material/card';
-import {MatToolbarModule } from '@angular/material/toolbar';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
@@ -33,10 +29,6 @@ export function StartupServiceFactory(startupService: StartupService) {
    imports: [
       BrowserModule,
       BrowserAnimationsModule,
-      MatToolbarModule,
-      MatCardModule,
-      MatButtonModule,
-      MatIconModule,
       FontAwesomeModule,
       HttpClientModule,
       CoreModule,
@@ -47,7 +39,6 @@ export function StartupServiceFactory(startupService: StartupService) {
       ThemeModule,
       IvoryModule,
       IvoryRoutingModule
-      ,MatCardModule
    ],
    providers: [
       {
