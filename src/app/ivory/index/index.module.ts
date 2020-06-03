@@ -21,7 +21,6 @@ import { UserPanelComponent } from 'src/app/shared/components/user-panel/user-pa
     ReactiveFormsModule,
     BrowserModule,
     FontAwesomeModule,
-    MatButtonModule,
     SharedModule,
   ],
   declarations: [

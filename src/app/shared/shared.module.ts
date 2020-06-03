@@ -1,3 +1,4 @@
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -48,7 +49,6 @@ const PIPES = [];
     ...COMPONENTS,
     ...DIRECTIVES,
     ...PIPES,
-    MatCardModule
   ],
   entryComponents: COMPONENTS_DYNAMIC,
 })

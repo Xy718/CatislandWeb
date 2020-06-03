@@ -8,25 +8,24 @@
         <mat-form-field appearance="outline">
           <mat-label>Username</mat-label>
           <input matInput placeholder="Username" formControlName="username" required>
-          <mat-error *ngIf="reactiveForm.get('username').invalid">Please enter username</mat-error>
+          <mat-error *ngIf="reactiveForm.get('username').invalid">请输入宁的用户名</mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
           <mat-label>Password</mat-label>
           <input matInput placeholder="Password" type="password" formControlName="password"
                  required>
-          <mat-error *ngIf="reactiveForm.get('password').invalid">Please enter password</mat-error>
+          <mat-error *ngIf="reactiveForm.get('password').invalid">宁的密码呢？
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
           <mat-label>Confirm Password</mat-label>
           <input matInput placeholder="Confirm Password" type="password"
                  formControlName="confirmPassword" required>
-          <mat-error *ngIf="reactiveForm.get('confirmPassword').hasError('required')">Please confirm
-            your password!
+          <mat-error *ngIf="reactiveForm.get('confirmPassword').hasError('required')">重复一遍你的密码啊
           </mat-error>
-          <mat-error *ngIf="reactiveForm.get('confirmPassword').hasError('confirm')">Password is
-            inconsistent!
+          <mat-error *ngIf="reactiveForm.get('confirmPassword').hasError('confirm')">两次密码不一样啊？打歪来？
           </mat-error>
         </mat-form-field>
 
@@ -34,9 +33,9 @@
           <mat-checkbox>I have read and agree to the terms of service.</mat-checkbox>
         </div>
 
-        <button class="w-full" mat-raised-button color="primary">Save</button>
+        <button class="w-full" mat-raised-button color="primary">REGISTER</button>
 
-        <div class="m-t-16">Already have an account? <a routerLink="/auth/login">Sign in</a></div>
+        <div class="m-t-16">你已经有账号了? <a routerLink="/auth/login">登录啊!</a></div>
       </form>
     </mat-card-content>
   </mat-card>
