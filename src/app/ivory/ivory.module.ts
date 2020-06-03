@@ -1,3 +1,4 @@
+import { MaterialModule } from './../material.module';
 import { UserPanelComponent } from 'src/app/shared/components/user-panel/user-panel.component';
 import { SharedModule } from './../shared/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,7 +18,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TopToolbarComponent } from '../shared/components/top-toolbar/top-toolbar.component';
 import { FooterToolbarComponent } from '../shared/components/footer-toolbar/footer-toolbar.component';
 import { MainPageComponent } from '../shared/components/main-page/main-page.component';
-import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   exports:[
@@ -31,6 +31,7 @@ import { MatInputModule } from '@angular/material/input';
     RouterModule,
     ReactiveFormsModule,
     SharedModule,
+    MaterialModule,
     ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'})
   ],
   declarations: [

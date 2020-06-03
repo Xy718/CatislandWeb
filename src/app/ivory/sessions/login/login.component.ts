@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/core/authentication/auth.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 import { LoginContentModel } from 'src/app/core/model/login-content-model';
 
 @Component({
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     this.reactiveForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
-      rememberMe: [false],
+      rememberMe: [false], 
     });
   }
   loginForm=new LoginContentModel();
@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
     this.inLogin=true;
     this.reactiveForm.disable();
     //登录
-    this.auth.login(this.loginForm);
+    this.auth.login(this.loginForm)
+      .subscribe((X) => console.log(X));
   }
 }

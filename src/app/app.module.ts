@@ -1,14 +1,9 @@
-import { MatInputModule } from '@angular/material/input';
 import { IvoryRoutingModule } from './ivory/ivory-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule,APP_INITIALIZER } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { fas } from '@fortawesome/free-solid-svg-icons';
-import { far } from '@fortawesome/free-regular-svg-icons';
-import { fab } from '@fortawesome/free-brands-svg-icons';
 
-import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
-import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
@@ -19,6 +14,10 @@ import { IvoryModule } from './ivory/ivory.module';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { environment } from 'src/environments/environment';
+
+import { GlobalConfigModule } from './global-config.module';
+
 export function StartupServiceFactory(startupService: StartupService) {
    return () => startupService.load();
  }
@@ -29,10 +28,9 @@ export function StartupServiceFactory(startupService: StartupService) {
    imports: [
       BrowserModule,
       BrowserAnimationsModule,
-      FontAwesomeModule,
       HttpClientModule,
       CoreModule,
-      
+      GlobalConfigModule.forRoot(),
       RouterModule,
       ReactiveFormsModule,
       SharedModule,
@@ -57,7 +55,9 @@ export function StartupServiceFactory(startupService: StartupService) {
     bootstrap: [AppComponent],
 })
 export class AppModule { 
-   constructor(library:FaIconLibrary){
-      library.addIconPacks(fas,far,fab);
+   constructor(){
+      if(!environment.production){
+         console.log('dev!');
+      }
    }
 }
