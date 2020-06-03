@@ -9,5 +9,11 @@ pipeline {
       }
     }
 
+    stage('dist') {
+      steps {
+        archiveArtifacts(artifacts: 'dist/**', onlyIfSuccessful: true)
+      }
+    }
+
   }
 }
