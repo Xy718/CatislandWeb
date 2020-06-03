@@ -4,7 +4,7 @@ pipeline {
     stage('Build1') {
       steps {
         sh 'npm install'
-        sh 'ng build --prod'
+        sh 'npm build-prod'
         echo '123'
       }
     }
