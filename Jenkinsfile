@@ -9,12 +9,6 @@ pipeline {
       }
     }
 
-    stage('dist') {
-      steps {
-        archiveArtifacts(artifacts: 'dist/**', onlyIfSuccessful: true)
-      }
-    }
-
     stage('deploy') {
       steps {
         echo '开始部署'
@@ -29,5 +23,10 @@ pipeline {
       }
     }
 
+    stage('dist') {
+      steps {
+        archiveArtifacts(artifacts: 'dist/**', onlyIfSuccessful: true)
+      }
+    }
   }
 }
