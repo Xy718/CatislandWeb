@@ -37,7 +37,7 @@ pipeline {
     stage('提示') {
       steps {
         emailext(
-          subject: '尊敬的逼大人❥'
+          subject: '尊敬的逼大人'
           , body: '$DEFAULT_CONTENT'
           , attachLog: true
           , compressLog: true

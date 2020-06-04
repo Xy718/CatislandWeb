@@ -1,17 +1,18 @@
 import { Location } from '@angular/common';
 import { ResultBeanModel } from 'src/app/core/model/result-bean-model';
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Inject } from '@angular/core';
 import {FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { LoginContentModel } from 'src/app/core/model/login-content-model';
-import { MatSnackBar,MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ITokenService, DA_SERVICE_TOKEN } from '@delon/auth';
 
 /**
  * @Author: Xy718
  * @Date: 2020-06-04 10:37:45
  * @LastEditors: Xy718
- * @LastEditTime: 2020-06-04 15:31:05
+ * @LastEditTime: 2020-06-04 23:17:47
  */
 @Component({
 	selector: 'app-login',
@@ -31,7 +32,9 @@ export class LoginComponent implements OnInit {
 		,private router: Router
 		,private auth:AuthService
 		,public snackBar: MatSnackBar
-		,private location:Location
+		,private location:Location,
+		 @Inject(DA_SERVICE_TOKEN)
+		 private tokenService: ITokenService
 	) {
 		this.reactiveForm = this.fb.group({
 		username: ['', Validators.required],
@@ -47,11 +50,12 @@ export class LoginComponent implements OnInit {
 		//登录
 		this.auth.login(this.loginForm)
 		.subscribe(result=>{
-			console.debug(result);
+			console.log(result);
 			this.openSnackBar(result);
 			if(result.code=="0"){//成功
 				//储存jwt
-				
+				this.tokenService.set({ token: `${result.data["jwt"]}` });
+				console.log(this.tokenService.get().token);
 				//跳转页面
 				this.router.navigateByUrl('/');
 			}else{
