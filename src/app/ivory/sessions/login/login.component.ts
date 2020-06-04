@@ -1,10 +1,5 @@
+import { Location } from '@angular/common';
 import { ResultBeanModel } from 'src/app/core/model/result-bean-model';
-/**
- * @Author: Xy718
- * @Date: 2020-06-04 10:37:45
- * @LastEditors: Xy718
- * @LastEditTime: 2020-06-04 15:31:05
- */
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -12,6 +7,12 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 import { LoginContentModel } from 'src/app/core/model/login-content-model';
 import { MatSnackBar,MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 
+/**
+ * @Author: Xy718
+ * @Date: 2020-06-04 10:37:45
+ * @LastEditors: Xy718
+ * @LastEditTime: 2020-06-04 15:31:05
+ */
 @Component({
 	selector: 'app-login',
 	templateUrl: './login.component.html',
@@ -30,6 +31,7 @@ export class LoginComponent implements OnInit {
 		,private router: Router
 		,private auth:AuthService
 		,public snackBar: MatSnackBar
+		,private location:Location
 	) {
 		this.reactiveForm = this.fb.group({
 		username: ['', Validators.required],
@@ -51,7 +53,7 @@ export class LoginComponent implements OnInit {
 				//储存jwt
 				
 				//跳转页面
-				
+				this.router.navigateByUrl('/');
 			}else{
 				//清空密码及重新请求验证码
 				this.loginForm.password="";
@@ -67,7 +69,7 @@ export class LoginComponent implements OnInit {
 	openSnackBar(result:ResultBeanModel) {
 		this.snackBar.open(result.msg,"",{
 			duration:2000,
-			// verticalPosition:"top",
+			verticalPosition:result.code=="-1"?"bottom":"top",
 			panelClass:result.code=="-1"?["login-fail-color"]:""
 		}); 
 	}
