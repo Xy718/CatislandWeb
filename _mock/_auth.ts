@@ -23,7 +23,17 @@ function getRandomLogin(loginContent:LoginContentModel){
     }
     if(acc.password==loginContent.password){
         //mock 认证通过
-        return new ResultBeanModel("0","登录成功",{"jwt":"123"});
+        /*
+        {
+            "sub": "Xy718Tester",
+            "name": "JZF",
+            "iat": 1636239022,
+            "message":"666啊老铁"
+        }
+            123456
+        */
+        return new ResultBeanModel("0","登录成功"
+            ,{"jwt":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJYeTcxOFRlc3RlciIsIm5hbWUiOiJKWkYiLCJpYXQiOjE2MzYyMzkwMjIsIm1lc3NhZ2UiOiI2NjbllYrogIHpk4EifQ.jE_3qFVct6Po4mu0ctfnf4EDzsAoee8PY9Saas7y7Cw"});
     }else{
         return new ResultBeanModel("-1","登陆失败,用户名或密码错误",{});
         // return new HttpResponse({

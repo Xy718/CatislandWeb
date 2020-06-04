@@ -1,4 +1,10 @@
-export const topics=[
+import { TopicModel } from './../src/app/core/model/topic-model';
+import { ResultBeanModel } from 'src/app/core/model/result-bean-model';
+import { LoginContentModel } from 'src/app/core/model/login-content-model';
+import { MockRequest, MockStatusError } from '@delon/mock';
+import { HttpResponse } from '@angular/common/http';
+
+export const topics:TopicModel[]=[
     {
         avatarUrl:"https://material.angular.io/assets/img/examples/shiba1.jpg",
         userName:"Shiba Inu1",
@@ -39,3 +45,15 @@ export const topics=[
         shared:"0",
     },
 ];
+
+export const topic = {
+    'GET /topic/all': getTopics(),
+  };
+
+function getTopics(){
+    return new ResultBeanModel(
+        "0",
+        "",
+        topics
+    );
+}

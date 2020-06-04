@@ -8,7 +8,21 @@ import { DelonMockModule } from '@delon/mock';
 
 let exp_module=[];
 const alainConfig: AlainConfig = {
-  st: { ps: 3 },
+	//配置@delon/auth
+	auth:{
+		token_invalid_redirect: true,
+		/**
+		 * 发送token参数名，默认：·
+		 */
+		// token_send_key: "token",
+		token_send_template: 'Bearer ${token}',
+		token_send_place: 'header',
+		//登录页路由地址
+		login_url: "/auth/login",
+		//是否校验失效时命中后继续调用后续拦截器的 `intercept` 方法，默认：`true`
+		executeOtherInterceptors:true
+		
+	}
 };
 
 //TODO 记得删掉

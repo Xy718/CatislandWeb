@@ -17,6 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 
 import { GlobalConfigModule } from './global-config.module';
+import { DelonAuthModule, JWTInterceptor } from '@delon/auth';
 
 export function StartupServiceFactory(startupService: StartupService) {
    return () => startupService.load();
@@ -36,7 +37,8 @@ export function StartupServiceFactory(startupService: StartupService) {
       SharedModule,
       ThemeModule,
       IvoryModule,
-      IvoryRoutingModule
+      IvoryRoutingModule,
+      DelonAuthModule,
    ],
    providers: [
       {
@@ -51,6 +53,7 @@ export function StartupServiceFactory(startupService: StartupService) {
          deps: [StartupService],
          multi: true,
       },
+      { provide: HTTP_INTERCEPTORS, useClass: JWTInterceptor, multi: true}
     ],
     bootstrap: [AppComponent],
 })
