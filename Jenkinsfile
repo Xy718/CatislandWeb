@@ -46,9 +46,6 @@ pipeline {
           ,to: '895487526@qq.com'
         )
         echo 'biki的提示邮件发送完毕'
-      }
-    }
-    steps('提示')  {
         emailext(
           subject: 'Xy718'
           , body: '$DEFAULT_CONTENT'
@@ -60,5 +57,6 @@ pipeline {
           )
         echo 'Xy718的提示邮件发送完毕'
       }
+    }
   }
 }
