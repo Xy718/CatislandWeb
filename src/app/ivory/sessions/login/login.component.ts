@@ -1,3 +1,4 @@
+import { ResultBeanModel } from 'src/app/core/model/result-bean-model';
 /**
  * @Author: Xy718
  * @Date: 2020-06-04 10:37:45
@@ -54,12 +55,16 @@ export class LoginComponent implements OnInit {
 			}else{
 				//清空密码及重新请求验证码
 				this.loginForm.password="";
+				this.loginStatus(false);
 			}
-			this.loginStatus(false);
 		});
 	}
 	
-	openSnackBar(result) {
+	/**
+	 * 打开快餐提示栏，根据result自动样式
+	 * @param {ResultBeanModel} result 
+	 */
+	openSnackBar(result:ResultBeanModel) {
 		this.snackBar.open(result.msg,"",{
 			duration:2000,
 			// verticalPosition:"top",
