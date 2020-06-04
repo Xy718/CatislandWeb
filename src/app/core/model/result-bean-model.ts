@@ -5,17 +5,17 @@
  * @class ResultBeanModel
  */
 export class ResultBeanModel {
-    code:String="-1"; 
-    msg:String="";
+    code:string="-1"; 
+    msg:string="";
     data:Object={}; 
 
-    constructor(code:String,msg:String,data:Object){
+    constructor(code:string,msg:string,data:Object){
         this.code=code;
         this.msg=msg;
         this.data=data;
     }
 
-    public static error(msg:String,data:Object){
+    public static error(msg:string,data:Object){
         return new ResultBeanModel("-1",msg,data);
     }
 }

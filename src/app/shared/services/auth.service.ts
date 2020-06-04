@@ -16,6 +16,6 @@ export class AuthService extends BaseApi{
 	
 	@POST("/login")
 	login(@Body content:LoginContentModel):Observable<ResultBeanModel>{
-		return;
+		return ;
 	}
 }

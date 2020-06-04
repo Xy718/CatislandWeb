@@ -14,3 +14,9 @@
 #loginBtn{
     text-align: -webkit-center;
 }
+.login-fail-color{
+    background-color: #f44336;
+}
+.login-fail-color span{
+    color:#fff;
+}
