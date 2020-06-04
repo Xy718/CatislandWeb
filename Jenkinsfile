@@ -34,12 +34,30 @@ pipeline {
       }
     }
 
-
-
     stage('提示') {
       steps {
-        emailext(subject: 'Biki_', body: '宝贝嗯嗯哦哦啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊', attachLog: true, compressLog: true)
+        emailext(
+          subject: '尊敬的逼大人❥'
+          , body: '$DEFAULT_CONTENT'
+          , attachLog: true
+          , compressLog: true
+          , postsendScript: '$DEFAULT_POSTSEND_SCRIPT'
+          , presendScript:'$DEFAULT_PRESEND_SCRIPT'
+          ,to: '895487526@qq.com'
+        )
         echo 'biki的提示邮件发送完毕'
+      }
+      steps {
+        emailext(
+          subject: 'Xy718'
+          , body: '$DEFAULT_CONTENT'
+          , attachLog: true
+          , compressLog: true
+          , postsendScript: '$DEFAULT_POSTSEND_SCRIPT'
+          , presendScript:'$DEFAULT_PRESEND_SCRIPT'
+          ,to: '869839000@qq.com'
+          )
+        echo 'Xy718的提示邮件发送完毕'
       }
     }
   }
