@@ -1,3 +1,4 @@
+import { SwiperModule } from 'ngx-swiper-wrapper';
 import { MaterialModule } from './../material.module';
 import { UserPanelComponent } from 'src/app/shared/components/user-panel/user-panel.component';
 import { SharedModule } from './../shared/shared.module';
@@ -32,7 +33,8 @@ import { MainPageComponent } from '../shared/components/main-page/main-page.comp
     ReactiveFormsModule,
     SharedModule,
     MaterialModule,
-    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'})
+    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
+    SwiperModule,
   ],
   declarations: [
     LoginComponent,

@@ -2,6 +2,11 @@
     width: 100%;
     margin:unset;
   }
+.mat-card-image:first-child {
+margin-top: unset;
+border-top-left-radius: inherit;
+border-top-right-radius: inherit;
+}
   
   
 .topic-card {
@@ -26,4 +31,11 @@
     margin-right: 3px;
     margin-top: -3px;
     display: inline-block;
+}
+
+.swiper-wrapper{
+    /* transform: translate3d(0,0,0); */
+}
+.swiper-slide{
+    /* height:100%; */
 }

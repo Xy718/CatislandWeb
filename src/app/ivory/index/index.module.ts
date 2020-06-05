@@ -1,3 +1,4 @@
+import { SwiperModule } from 'ngx-swiper-wrapper';
 import { SharedModule } from '../../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
@@ -22,6 +23,7 @@ import { UserPanelComponent } from 'src/app/shared/components/user-panel/user-pa
     BrowserModule,
     FontAwesomeModule,
     SharedModule,
+    SwiperModule
   ],
   declarations: [
     Error404Component

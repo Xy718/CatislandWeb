@@ -6,7 +6,17 @@
 		<mat-card-title>{{topic.userName}}</mat-card-title>
 		<mat-card-subtitle>{{topic.userIntro}}</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image [src]="topic.tpcCoverImgs[0]" alt="Photo of a Shiba Inu">
+      <div class="content-container">
+        <swiper [config]="config" class="swiper-container" >
+            <div *ngFor="let img of topic.tpcCoverImgs; let index = index" class="swiper-slide cursor-pointer">
+                <div >
+                    <!-- fxLayout="column" fxLayoutAlign="center center" fxFlexFill class="mx-2" -->
+                    <img mat-card-image [src]="img" alt="行吧。。">
+                </div>
+            </div>
+        </swiper>
+    </div>
+
     <mat-card-content>
       <p>{{topic.tpcSummary}}</p>
     </mat-card-content>

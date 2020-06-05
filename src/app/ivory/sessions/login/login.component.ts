@@ -12,7 +12,7 @@ import { ITokenService, DA_SERVICE_TOKEN } from '@delon/auth';
  * @Author: Xy718
  * @Date: 2020-06-04 10:37:45
  * @LastEditors: Xy718
- * @LastEditTime: 2020-06-04 23:17:47
+ * @LastEditTime: 2020-06-05 22:05:34
  */
 @Component({
 	selector: 'app-login',
@@ -70,7 +70,7 @@ export class LoginComponent implements OnInit {
 	 * 打开快餐提示栏，根据result自动样式
 	 * @param {ResultBeanModel} result 
 	 */
-	openSnackBar(result:ResultBeanModel) {
+	openSnackBar(result:any) {
 		this.snackBar.open(result.msg,"",{
 			duration:2000,
 			verticalPosition:result.code=="-1"?"bottom":"top",

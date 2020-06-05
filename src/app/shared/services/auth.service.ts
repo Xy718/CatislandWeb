@@ -15,7 +15,7 @@ import { _HttpClient } from './http.client';
 export class AuthService extends BaseApi{
 	
 	@POST("/login")
-	login(@Body content:LoginContentModel):Observable<ResultBeanModel>{
+	login(@Body content:LoginContentModel):Observable<ResultBeanModel<any>>{
 		return ;
 	}
 }
