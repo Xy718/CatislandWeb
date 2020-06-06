@@ -4,6 +4,16 @@ import { TopicService } from '../../services/topic.service';
 import { SwiperModule, SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import Swiper from 'swiper';
 
+/**
+ * 
+ * @Author: Xy718
+ * @Date: 2020-06-06 01:58:33
+ * @LastEditors: Xy718
+ * @LastEditTime: 2020-06-06 22:17:23
+ * @export
+ * @class MainPageComponent
+ * @implements {OnInit}
+ */
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',

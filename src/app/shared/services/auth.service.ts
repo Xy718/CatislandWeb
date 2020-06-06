@@ -6,6 +6,7 @@ import { LoginContentModel } from 'src/app/core/model/login-content-model';
 import { ResultBeanModel } from 'src/app/core/model/result-bean-model';
 import { tap, catchError } from 'rxjs/operators';
 import { _HttpClient } from './http.client';
+import { RegistContentModel } from 'src/app/core/model/regist-content-model';
 
 @BaseUrl('/auth')
 @BaseHeaders({ 'Content-Type': 'application/json' })
@@ -17,5 +18,10 @@ export class AuthService extends BaseApi{
 	@POST("/login")
 	login(@Body content:LoginContentModel):Observable<ResultBeanModel<any>>{
 		return ;
+	}
+
+	@POST("/reg")
+	register(@Body content:RegistContentModel):Observable<ResultBeanModel<any>>{
+		return;
 	}
 }

@@ -7,22 +7,35 @@
       <form class="form-field-full" [formGroup]="reactiveForm">
         <mat-form-field appearance="outline">
           <mat-label>Username</mat-label>
-          <input matInput placeholder="Username" formControlName="username" required>
+          <input matInput 
+            placeholder="Username" 
+            formControlName="username" 
+            [(ngModel)]="registForm.username"
+            required />
           <mat-error *ngIf="reactiveForm.get('username').invalid">请输入宁的用户名</mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
           <mat-label>Password</mat-label>
-          <input matInput placeholder="Password" type="password" formControlName="password"
-                 required>
-          <mat-error *ngIf="reactiveForm.get('password').invalid">宁的密码呢？
+          <input matInput 
+            placeholder="Password" 
+            type="password" 
+            formControlName="password"
+            [(ngModel)]="registForm.password" autocomplete="off"
+            required>
+          <mat-error *ngIf="reactiveForm.get('password').invalid">
+            密码支持6-32位的大小写字母、数字及特殊字符
           </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
           <mat-label>Confirm Password</mat-label>
-          <input matInput placeholder="Confirm Password" type="password"
-                 formControlName="confirmPassword" required>
+          <input matInput 
+            placeholder="Confirm Password" 
+            type="password"
+            formControlName="confirmPassword" 
+            [(ngModel)]="confirmPassword"
+            required>
           <mat-error *ngIf="reactiveForm.get('confirmPassword').hasError('required')">重复一遍你的密码啊
           </mat-error>
           <mat-error *ngIf="reactiveForm.get('confirmPassword').hasError('confirm')">两次密码不一样啊？打歪来？
@@ -30,10 +43,14 @@
         </mat-form-field>
 
         <div class="m-y-16" fxLayout="row" fxLayoutAlign="space-between center">
-          <mat-checkbox>I have read and agree to the terms of service.</mat-checkbox>
+          <mat-checkbox [disabled]="inReg">这个CheckBox是一个测试，别当真</mat-checkbox>
         </div>
 
-        <button class="w-full" mat-raised-button color="primary">REGISTER</button>
+        <button id="loginBtn" (click)="regiter()" class="w-full" mat-raised-button color="primary"
+          [disabled]="reactiveForm.invalid||inReg">
+          <span [hidden]="inReg">REGISTE</span>
+          <mat-spinner id="loadingSpinner" [hidden]="!inReg"></mat-spinner>
+        </button>
 
         <div class="m-t-16">你已经有账号了? <a routerLink="/auth/login">登录啊!</a></div>
       </form>

@@ -20,3 +20,9 @@
 .login-fail-color span{
     color:#fff;
 }
+.reg-fail-color{
+    background-color: #f44336;
+}
+.reg-fail-color span{
+    color:#fff;
+}

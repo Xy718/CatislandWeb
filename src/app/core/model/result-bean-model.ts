@@ -18,4 +18,8 @@ export class ResultBeanModel<T> {
     public static error(msg:string,data:any){
         return new ResultBeanModel("-1",msg,data);
     }
+
+    public static success(msg:string,data:any){
+        return new ResultBeanModel("0",msg,data);
+    }
 }

@@ -12,7 +12,7 @@ import { ITokenService, DA_SERVICE_TOKEN } from '@delon/auth';
  * @Author: Xy718
  * @Date: 2020-06-04 10:37:45
  * @LastEditors: Xy718
- * @LastEditTime: 2020-06-05 22:05:34
+ * @LastEditTime: 2020-06-06 23:56:53
  */
 @Component({
 	selector: 'app-login',
