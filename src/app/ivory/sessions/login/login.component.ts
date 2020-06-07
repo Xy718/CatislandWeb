@@ -2,7 +2,7 @@ import { Location } from '@angular/common';
 import { ResultBeanModel } from 'src/app/core/model/result-bean-model';
 import { Component, OnInit, ViewEncapsulation, Inject } from '@angular/core';
 import {FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { LoginContentModel } from 'src/app/core/model/login-content-model';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -12,7 +12,7 @@ import { ITokenService, DA_SERVICE_TOKEN } from '@delon/auth';
  * @Author: Xy718
  * @Date: 2020-06-04 10:37:45
  * @LastEditors: Xy718
- * @LastEditTime: 2020-06-06 23:56:53
+ * @LastEditTime: 2020-06-07 22:26:14
  */
 @Component({
 	selector: 'app-login',
@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
 
 	constructor(
 		private fb: FormBuilder
+		,private activatedRoute: ActivatedRoute
 		,private router: Router
 		,private auth:AuthService
 		,public snackBar: MatSnackBar
@@ -42,7 +43,13 @@ export class LoginComponent implements OnInit {
 		rememberMe: [false], 
 		});
 	}
-	ngOnInit() {}
+	ngOnInit() {
+		this.activatedRoute.queryParams.subscribe((data)=>{
+			if(data.username){
+				this.loginForm.username=data.username;
+			}
+		});
+	}
 
 	login() {
 		//切换当前的登录状态用于控制表单样式

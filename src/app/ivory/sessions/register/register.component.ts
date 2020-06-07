@@ -2,7 +2,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { RegistContentModel } from 'src/app/core/model/regist-content-model';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 /**
@@ -49,8 +49,7 @@ export class RegisterComponent implements OnInit {
       this.openSnackBar(result);
       if(result.code=="0"){//成功
         //跳转到登录页面
-        //TODO 添加转到login后自动输入用户名的功能
-        this.router.navigateByUrl('/auth/login');
+        this.router.navigate(['/auth/login'],{queryParams:{username:this.registForm.username}});
       }else{
         //清空密码及重新请求验证码
         this.registForm.password="";
