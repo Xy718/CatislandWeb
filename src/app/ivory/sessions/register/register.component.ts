@@ -41,7 +41,7 @@ export class RegisterComponent implements OnInit {
   
   regiter(){
     //切换当前的注册状态用于控制表单样式
-    this.regStatus(true);
+    this.regStatus(true); 
     //登录
     this.auth.register(this.registForm)
     .subscribe(result=>{
