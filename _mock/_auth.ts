@@ -31,7 +31,7 @@ function getRandomLogin(loginContent:LoginContentModel){
         return new ResultBeanModel("-1","登陆失败,用户名或密码错误",{});
     }
     if(acc.password==loginContent.password){
-        //mock 认证通过
+        //mock 认证通过 
         /*
         {
             "sub": "Xy718Tester",
