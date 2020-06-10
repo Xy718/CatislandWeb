@@ -26,3 +26,7 @@
 .reg-fail-color span{
     color:#fff;
 }
+
+input[matinput]{
+    height: 18px;
+}
