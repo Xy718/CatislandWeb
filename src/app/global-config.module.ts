@@ -25,9 +25,7 @@ const alainConfig: AlainConfig = {
 	}
 };
 
-//TODO 记得删掉
-alainConfig.mock = { data: MOCKDATA };
-exp_module=[DelonMockModule.forRoot(),];
+//根据环境确定是否启用mock
 if (!environment.production) {
   alainConfig.mock = { data: MOCKDATA };
   exp_module=[DelonMockModule.forRoot(),];
