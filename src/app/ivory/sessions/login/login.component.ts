@@ -7,12 +7,13 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 import { LoginContentModel } from 'src/app/core/model/login-content-model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ITokenService, DA_SERVICE_TOKEN } from '@delon/auth';
+import { ACLService } from '@delon/acl';
 
 /**
  * @Author: Xy718
- * @Date: 2020-06-04 10:37:45
+ * @Date: 2020-06-19 14:35:09
  * @LastEditors: Xy718
- * @LastEditTime: 2020-06-07 22:26:14
+ * @LastEditTime: 2020-06-19 14:39:01
  */
 @Component({
 	selector: 'app-login',
@@ -35,13 +36,15 @@ export class LoginComponent implements OnInit {
 		,public snackBar: MatSnackBar
 		,private location:Location,
 		 @Inject(DA_SERVICE_TOKEN)
-		 private tokenService: ITokenService
+     private tokenService: ITokenService,
+     private aclService:ACLService,
 	) {
 		this.reactiveForm = this.fb.group({
-		username: ['', Validators.required],
-		password: ['', Validators.required],
-		rememberMe: [false], 
-		});
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+      rememberMe: [false],
+    });
+    this.aclService.setFull(true);
 	}
 	ngOnInit() {
 		this.activatedRoute.queryParams.subscribe((data)=>{
@@ -72,17 +75,17 @@ export class LoginComponent implements OnInit {
 			}
 		});
 	}
-	
+
 	/**
 	 * 打开快餐提示栏，根据result自动样式
-	 * @param {ResultBeanModel} result 
+	 * @param {ResultBeanModel} result
 	 */
 	openSnackBar(result:any) {
 		this.snackBar.open(result.msg,"",{
 			duration:2000,
 			verticalPosition:result.code=="-1"?"bottom":"top",
 			panelClass:result.code=="-1"?["login-fail-color"]:""
-		}); 
+		});
 	}
 
 	/**

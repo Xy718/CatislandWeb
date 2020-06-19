@@ -1,11 +1,10 @@
 import { IvoryRoutingModule } from './ivory/ivory-routing.module';
-import { BrowserModule } from '@angular/platform-browser'; 
 import { NgModule,APP_INITIALIZER } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
 import { CoreModule } from './core/core.module';
+import { BrowserModule } from '@angular/platform-browser';
 import { SharedModule } from './shared/shared.module';
 import { ThemeModule } from './theme/theme.module';
 
@@ -18,6 +17,9 @@ import { environment } from 'src/environments/environment';
 
 import { GlobalConfigModule } from './global-config.module';
 import { DelonAuthModule, JWTInterceptor } from '@delon/auth';
+import { NzMessageModule } from 'ng-zorro-antd/message';
+import { NzNotificationModule } from 'ng-zorro-antd/notification';
+// import { DelonACLModule } from '@delon/acl';
 
 export function StartupServiceFactory(startupService: StartupService) {
    return () => startupService.load();
@@ -39,6 +41,9 @@ export function StartupServiceFactory(startupService: StartupService) {
       IvoryModule,
       IvoryRoutingModule,
       DelonAuthModule,
+      NzMessageModule,
+      NzNotificationModule,
+      // DelonACLModule.forRoot()
    ],
    providers: [
       {
@@ -57,7 +62,7 @@ export function StartupServiceFactory(startupService: StartupService) {
     ],
     bootstrap: [AppComponent],
 })
-export class AppModule { 
+export class AppModule {
    constructor(){
       if(!environment.production){
          console.log('dev!');

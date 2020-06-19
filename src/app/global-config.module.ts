@@ -20,8 +20,13 @@ const alainConfig: AlainConfig = {
 		//登录页路由地址
 		login_url: "/auth/login",
 		//是否校验失效时命中后继续调用后续拦截器的 `intercept` 方法，默认：`true`
-		executeOtherInterceptors:true
-		
+    executeOtherInterceptors:true,
+    //TODO 这个部分需要从后端加载无验证的url
+		ignores:[
+      /\/login/
+      , /assets\//
+      , /topic\//
+    ]
 	}
 };
 
@@ -43,7 +48,7 @@ export class GlobalConfigModule {
   constructor(@Optional() @SkipSelf() parentModule: GlobalConfigModule) {
     throwIfAlreadyLoaded(parentModule, 'GlobalConfigModule');
   }
-  
+
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: GlobalConfigModule,

@@ -16,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TopToolbarComponent } from 'src/app/shared/components/top-toolbar/top-toolbar.component';
 import { MatCardModule } from '@angular/material/card';
 import { UserPanelComponent } from 'src/app/shared/components/user-panel/user-panel.component';
+import { NzNotificationService } from 'ng-zorro-antd/notification/public-api';
 @NgModule({
   imports: [
     RouterModule,
@@ -23,13 +24,15 @@ import { UserPanelComponent } from 'src/app/shared/components/user-panel/user-pa
     BrowserModule,
     FontAwesomeModule,
     SharedModule,
-    SwiperModule
+    SwiperModule,
   ],
   declarations: [
     Error404Component
     , Error403Component
     , Error500Component
-  ]
+  ],
+  providers:[
+    NzNotificationService]
 })
 export class IndexModule { 
   constructor(library:FaIconLibrary){

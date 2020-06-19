@@ -1,6 +1,4 @@
-import { MatIconModule } from '@angular/material/icon';
-import { MaterialModule } from 'src/app/material.module';
-import { MatMenuModule } from '@angular/material/menu';
+import { MaterialModule } from 'src/app/material.module'
 import { NgModule } from '@angular/core';
 
 import { AuthLayoutComponent } from './auth-layout/auth-layout.component';

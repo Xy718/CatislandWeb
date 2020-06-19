@@ -11,7 +11,7 @@ import { ResultBeanModel } from 'src/app/core/model/result-bean-model';
 })
 export class TopicService extends BaseApi{
 
-    @GET("/all")
+  @GET("/all")
 	getAllTopic():Observable<ResultBeanModel<TopicModel[]>>{
 		return ;
 	}
