@@ -7,7 +7,6 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 import { LoginContentModel } from 'src/app/core/model/login-content-model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ITokenService, DA_SERVICE_TOKEN } from '@delon/auth';
-import { ACLService } from '@delon/acl';
 
 /**
  * @Author: Xy718
@@ -37,14 +36,12 @@ export class LoginComponent implements OnInit {
 		,private location:Location,
 		 @Inject(DA_SERVICE_TOKEN)
      private tokenService: ITokenService,
-     private aclService:ACLService,
 	) {
 		this.reactiveForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
       rememberMe: [false],
     });
-    this.aclService.setFull(true);
 	}
 	ngOnInit() {
 		this.activatedRoute.queryParams.subscribe((data)=>{
