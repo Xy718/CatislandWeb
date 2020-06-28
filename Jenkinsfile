@@ -37,7 +37,7 @@ pipeline {
     stage('提示') {
       steps {
         emailext(
-          subject: '尊敬的逼大人'
+          subject: '尊敬的逼大人 -- 象牙塔前台前端'
           , body: '$DEFAULT_CONTENT'
           , attachLog: true
           , compressLog: true
@@ -47,7 +47,7 @@ pipeline {
         )
         echo 'biki的提示邮件发送完毕'
         emailext(
-          subject: 'Xy718'
+          subject: 'Xy718 -- 象牙塔前台前端'
           , body: '$DEFAULT_CONTENT'
           , attachLog: true
           , compressLog: true

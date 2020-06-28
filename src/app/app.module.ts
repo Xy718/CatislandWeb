@@ -19,7 +19,6 @@ import { GlobalConfigModule } from './global-config.module';
 import { DelonAuthModule, JWTInterceptor } from '@delon/auth';
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzNotificationModule } from 'ng-zorro-antd/notification';
-import { DelonACLModule } from '@delon/acl';
 
 export function StartupServiceFactory(startupService: StartupService) {
    return () => startupService.load();
@@ -43,7 +42,6 @@ export function StartupServiceFactory(startupService: StartupService) {
       DelonAuthModule,
       NzMessageModule,
       NzNotificationModule,
-      DelonACLModule.forRoot()
    ],
    providers: [
       {
