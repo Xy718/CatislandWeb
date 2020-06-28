@@ -27,9 +27,12 @@ export class MainPageComponent implements OnInit {
   topics:TopicModel[];
   testSwiper: Swiper;
   ngOnInit() {
-    this.topicService.getAllTopic().subscribe(tpcs=>this.topics=tpcs.data);
-
-
+    this.topicService.getAllTopic().subscribe(tpcs=>{
+      this.topics=tpcs.data.content;
+      console.log(this.topics);
+      
+    });
+    
   }
   config: SwiperConfigInterface = {
     a11y: true,

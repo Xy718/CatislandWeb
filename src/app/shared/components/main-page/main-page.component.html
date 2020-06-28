@@ -1,14 +1,14 @@
 <mat-card *ngFor="let topic of topics" class="topic-card">
     <mat-card-header>
-		<div [style.background-image]="'url('+topic.avatarUrl+')'"
+		<div [style.background-image]="'url('+topic.pub_userinfo.avatar+')'"
 			mat-card-avatar class="topic-header-image">
 		</div>
-		<mat-card-title>{{topic.userName}}</mat-card-title>
-		<mat-card-subtitle>{{topic.userIntro}}</mat-card-subtitle>
+		<mat-card-title>{{topic.pub_userinfo.nickName}}</mat-card-title>
+		<mat-card-subtitle>{{topic.pub_userinfo.userintro}}</mat-card-subtitle>
     </mat-card-header>
       <div class="content-container">
         <swiper [config]="config" class="swiper-container" >
-            <div *ngFor="let img of topic.tpcCoverImgs; let index = index" class="swiper-slide cursor-pointer">
+            <div *ngFor="let img of topic.imgs; let index = index" class="swiper-slide cursor-pointer">
                 <div >
                     <!-- fxLayout="column" fxLayoutAlign="center center" fxFlexFill class="mx-2" -->
                     <img mat-card-image [src]="img" alt="行吧。。">
@@ -18,7 +18,7 @@
     </div>
 
     <mat-card-content>
-      <p>{{topic.tpcSummary}}</p>
+      <p>{{topic.content}}</p>
     </mat-card-content>
     <mat-card-actions>
       <button mat-button><fa-icon class="btn-icon-like" [icon]="['far','heart']"></fa-icon>喜欢</button>

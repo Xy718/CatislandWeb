@@ -31,10 +31,10 @@ const alainConfig: AlainConfig = {
 };
 
 //根据环境确定是否启用mock
-if (!environment.production) {
-  alainConfig.mock = { data: MOCKDATA };
-  exp_module=[DelonMockModule.forRoot(),];
-}
+// if (!environment.production) {
+//   alainConfig.mock = { data: MOCKDATA };
+//   exp_module=[DelonMockModule.forRoot(),];
+// }
 
 const alainProvides = [{ provide: ALAIN_CONFIG, useValue: alainConfig }];
 

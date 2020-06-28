@@ -1,3 +1,5 @@
+import { PublicUserinfo } from './public-userinfo-model';
+
 /**
  * 帖子类
  * @Author: Xy718
@@ -6,12 +8,14 @@
  * @LastEditTime: 2020-06-04 23:45:30
  */
 export class TopicModel {
-    avatarUrl:string;
-    userName:string;
-    userIntro:string;
-    userID:string;
-    tpcCoverImgs:Array<string>;
-    tpcSummary:string;
-    liked:string;
-    shared:string;
+  liked:string="";
+  shared:string="";
+
+  tid: number;
+  title: string="";
+  content: string="";
+  imgs:Array<string>=[];
+  create_time: string="";
+  update_time: string="";
+  pub_userinfo:PublicUserinfo;
 }

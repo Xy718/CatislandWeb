@@ -111,7 +111,6 @@ export class DefaultInterceptor implements HttpInterceptor {
     }
 
     const newReq = req.clone({ url });
-    newReq.headers.append("Access-Control-Allow-Origin","*");
     return next.handle(newReq).pipe(
       mergeMap((event: any) => {
         // 允许统一对请求错误处理

@@ -7,9 +7,9 @@
 export class ResultBeanModel<T> {
     code:string="-1"; 
     msg:string="";
-    data:T; 
+    data:any; 
 
-    constructor(code:string,msg:string,data:T){
+    constructor(code:string,msg:string,data:any){
         this.code=code;
         this.msg=msg;
         this.data=data;
