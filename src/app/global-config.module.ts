@@ -27,7 +27,10 @@ const alainConfig: AlainConfig = {
       , /assets\//
       , /topic\//
     ]
-	}
+  },
+  cache:{
+    mode:'none'
+  }
 };
 
 //根据环境确定是否启用mock

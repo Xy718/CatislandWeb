@@ -16,8 +16,9 @@ import { FormlyModule } from '@ngx-formly/core';
 import { FormlyMaterialModule } from '@ngx-formly/material';
 import { ToastrModule } from 'ngx-toastr';
 import { TranslateModule } from '@ngx-translate/core';
-
-import { ErrorCodeComponent } from './components/error-code/error-code.component';
+import { NzAvatarModule } from 'ng-zorro-antd/avatar';
+import { ErrorCodeComponent } from './components/error-code/error-code.component'
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 const THIRD_MODULES = [
   MaterialModule,
@@ -31,6 +32,8 @@ const THIRD_MODULES = [
   FormlyMaterialModule,
   ToastrModule,
   TranslateModule,
+  NzIconModule,
+  NzAvatarModule,
 ];
 const COMPONENTS = [ ErrorCodeComponent];
 const COMPONENTS_DYNAMIC = [];

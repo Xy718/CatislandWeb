@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CacheService } from '@delon/cache';
 
 @Component({
   selector: 'app-top-toolbar',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./top-toolbar.component.css']
 })
 export class TopToolbarComponent implements OnInit {
-
-  constructor() { }
+  userinfo:any;
+  constructor(
+    public cacheSrv: CacheService
+  ) {
+    
+  }
 
   ngOnInit() {
+    this.userinfo=this.cacheSrv.getNone("userinfo");
   }
 
 }

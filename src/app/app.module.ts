@@ -19,6 +19,16 @@ import { GlobalConfigModule } from './global-config.module';
 import { DelonAuthModule, JWTInterceptor } from '@delon/auth';
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzNotificationModule } from 'ng-zorro-antd/notification';
+import { DelonCacheModule } from '@delon/cache';
+
+import { IconDefinition } from '@ant-design/icons-angular';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+
+// 引入你需要的图标，比如你需要 fill 主题的 AccountBook Alert 和 outline 主题的 Alert，推荐 ✔️
+import { AccountBookFill, AlertFill, AlertOutline } from '@ant-design/icons-angular/icons';
+
+const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill ];
+
 
 export function StartupServiceFactory(startupService: StartupService) {
    return () => startupService.load();
@@ -42,6 +52,8 @@ export function StartupServiceFactory(startupService: StartupService) {
       DelonAuthModule,
       NzMessageModule,
       NzNotificationModule,
+      DelonCacheModule,
+      NzIconModule.forRoot(icons),
    ],
    providers: [
       {

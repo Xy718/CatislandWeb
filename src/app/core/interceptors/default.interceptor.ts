@@ -7,6 +7,8 @@ import { environment } from 'src/environments/environment';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, mergeMap } from 'rxjs/operators';
+import { NzMessageService } from 'ng-zorro-antd/message';
+import { MessageService } from 'src/app/shared/services/message.service';
 
 const CODEMESSAGE = {
   200: '服务器成功返回请求的数据。',
@@ -35,6 +37,9 @@ export class DefaultInterceptor implements HttpInterceptor {
 
   private get notification(): NzNotificationService {
     return this.injector.get(NzNotificationService);
+  }
+  private get msg(): MessageService {
+    return this.injector.get(MessageService);
   }
 
   private goTo(url: string) {
@@ -80,10 +85,11 @@ export class DefaultInterceptor implements HttpInterceptor {
         // }
         break;
       case 401:
-        this.notification.error(`未登录或登录已过期，请重新登录。`, ``);
+        // this.notification.error(`未登录或登录已过期，请重新登录。`, ``);
         // 清空 token 信息
         (this.injector.get(DA_SERVICE_TOKEN) as ITokenService).clear();
-        this.goTo('/auth/login');
+        // this.goTo('/auth/login');
+        this.msg.warn("登录状态已失效~");
         break;
       case 403:
       case 404:

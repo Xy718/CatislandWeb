@@ -17,6 +17,7 @@ import { TopToolbarComponent } from 'src/app/shared/components/top-toolbar/top-t
 import { MatCardModule } from '@angular/material/card';
 import { UserPanelComponent } from 'src/app/shared/components/user-panel/user-panel.component';
 import { NzNotificationService } from 'ng-zorro-antd/notification/public-api';
+import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 @NgModule({
   imports: [
     RouterModule,
@@ -25,6 +26,7 @@ import { NzNotificationService } from 'ng-zorro-antd/notification/public-api';
     FontAwesomeModule,
     SharedModule,
     SwiperModule,
+    NzAvatarModule,
   ],
   declarations: [
     Error404Component

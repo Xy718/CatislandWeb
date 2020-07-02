@@ -7,6 +7,9 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 import { LoginContentModel } from 'src/app/core/model/login-content-model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ITokenService, DA_SERVICE_TOKEN } from '@delon/auth';
+import { MessageService } from 'src/app/shared/services/message.service';
+import { CacheService } from '@delon/cache';
+import { UserService } from 'src/app/shared/services/user.service';
 
 /**
  * @Author: Xy718
@@ -35,12 +38,15 @@ export class LoginComponent implements OnInit {
 		,public snackBar: MatSnackBar
 		,private location:Location,
 		 @Inject(DA_SERVICE_TOKEN)
-     private tokenService: ITokenService,
+		private tokenService: ITokenService,
+		private msg:MessageService,
+		private cacheSrv:CacheService,
+		private userSrv:UserService,
 	) {
 		this.reactiveForm = this.fb.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required],
-      rememberMe: [false],
+		username: ['', Validators.required],
+		password: ['', Validators.required],
+		rememberMe: [false],
     });
 	}
 	ngOnInit() {
@@ -60,11 +66,15 @@ export class LoginComponent implements OnInit {
 			console.log(result);
 			this.openSnackBar(result);
 			if(result.code=="0"){//成功
-				//储存jwt
-				this.tokenService.set({ token: `${result.data["jwt"]}` });
-				console.log(this.tokenService.get().token);
-				//跳转页面
-				this.router.navigateByUrl('/');
+        //储存jwt
+        this.tokenService.set({ token: `${result.data["jwt"]}` });
+				//设置缓存
+				this.userSrv.getUserSelf().subscribe(data=>{
+					this.cacheSrv.set("userinfo",data.data);
+          //跳转页面
+          this.router.navigateByUrl('/');
+          // this.router.navigate(["/"]);
+				});
 			}else{
 				//清空密码及重新请求验证码
 				this.loginForm.password="";
