@@ -23,9 +23,9 @@ const alainConfig: AlainConfig = {
     executeOtherInterceptors:true,
     //TODO 这个部分需要从后端加载无验证的url
 		ignores:[
-      /\/login/
-      , /assets\//
-      , /topic\//
+      /\/auth\/*/
+      , /assets\/*/
+      , /topic\/*/
     ]
   },
   cache:{
