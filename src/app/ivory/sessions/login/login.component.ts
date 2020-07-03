@@ -73,10 +73,10 @@ export class LoginComponent implements OnInit {
         this.tokenService.set({ token: `${result.data["jwt"]}` });
 				//设置缓存
 				this.userSrv.getUserSelf().subscribe(data=>{
-					this.cacheSrv.set("userinfo",data.data);
-          //跳转页面
-          this.router.navigateByUrl('/');
-          // this.router.navigate(["/"]);
+        this.cacheSrv.set("userinfo",data.data);
+        //跳转页面
+        this.router.navigateByUrl('/');
+        // this.router.navigate(["/"]);
 				});
 			}else{
 				//清空密码及重新请求验证码
