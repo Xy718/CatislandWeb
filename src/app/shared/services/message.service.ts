@@ -18,7 +18,7 @@ constructor(
     this.openSnackBar(ResultBeanModel.success(msg,null),action,"msg-danger",4000);
   }
   error(msg:string,action?:string,duration=4000){
-    this.openSnackBar(ResultBeanModel.success(msg,null),action,"msg-danger",duration);
+    this.openSnackBar(ResultBeanModel.error(msg,null),action,"msg-danger",duration);
   }
 
   /**

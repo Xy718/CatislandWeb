@@ -1,4 +1,6 @@
 
+
+.msg-danger{background-color: #f44336;span{color:#fff;}}
 .mat-progress-spinner circle, .mat-spinner circle {
     stroke: #fff!important;
 }

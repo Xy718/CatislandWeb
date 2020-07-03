@@ -10,6 +10,7 @@ import { ITokenService, DA_SERVICE_TOKEN } from '@delon/auth';
 import { MessageService } from 'src/app/shared/services/message.service';
 import { CacheService } from '@delon/cache';
 import { UserService } from 'src/app/shared/services/user.service';
+import { catchError } from 'rxjs/operators';
 
 /**
  * @Author: Xy718
@@ -61,11 +62,13 @@ export class LoginComponent implements OnInit {
 		//切换当前的登录状态用于控制表单样式
 		this.loginStatus(true);
 		//登录
-		this.auth.login(this.loginForm)
+    this.auth.login(this.loginForm)
+    .pipe(
+      catchError(this.msg.handleError("登录"))
+    )
 		.subscribe(result=>{
-			console.log(result);
-			this.openSnackBar(result);
-			if(result.code=="0"){//成功
+      if(result.code=="0"){//成功
+        this.msg.success("登陆成功!");
         //储存jwt
         this.tokenService.set({ token: `${result.data["jwt"]}` });
 				//设置缓存
@@ -80,18 +83,6 @@ export class LoginComponent implements OnInit {
 				this.loginForm.password="";
 				this.loginStatus(false);
 			}
-		});
-	}
-
-	/**
-	 * 打开快餐提示栏，根据result自动样式
-	 * @param {ResultBeanModel} result
-	 */
-	openSnackBar(result:any) {
-		this.snackBar.open(result.msg,"",{
-			duration:2000,
-			verticalPosition:result.code=="-1"?"bottom":"top",
-			panelClass:result.code=="-1"?["login-fail-color"]:""
 		});
 	}
 
