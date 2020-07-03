@@ -5,7 +5,7 @@ import { SwiperModule, SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import Swiper from 'swiper';
 
 /**
- * 
+ *
  * @Author: Xy718
  * @Date: 2020-06-06 01:58:33
  * @LastEditors: Xy718
@@ -29,10 +29,8 @@ export class MainPageComponent implements OnInit {
   ngOnInit() {
     this.topicService.getAllTopic().subscribe(tpcs=>{
       this.topics=tpcs.data.content;
-      console.log(this.topics);
-      
     });
-    
+
   }
   config: SwiperConfigInterface = {
     a11y: true,
@@ -57,5 +55,5 @@ export class MainPageComponent implements OnInit {
     //     }
     // }
   };
-  
+
 }

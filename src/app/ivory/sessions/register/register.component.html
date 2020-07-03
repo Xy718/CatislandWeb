@@ -7,19 +7,22 @@
       <form class="form-field-full" [formGroup]="reactiveForm">
         <mat-form-field appearance="outline">
           <mat-label>Username</mat-label>
-          <input matInput 
-            placeholder="Username" 
-            formControlName="username" 
+          <input matInput
+            placeholder="Username"
+            formControlName="username"
             [(ngModel)]="registForm.username"
             required />
-          <mat-error *ngIf="reactiveForm.get('username').invalid">请输入宁的用户名</mat-error>
+          <mat-hint>是用于登录的账号哦，并不是你交流的nickname</mat-hint>
+          <mat-error *ngIf="reactiveForm.get('username').invalid">
+            请输入宁的用户名，规则跟密码一样,长度5-24
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
           <mat-label>Password</mat-label>
-          <input matInput 
-            placeholder="Password" 
-            type="password" 
+          <input matInput
+            placeholder="Password"
+            type="password"
             formControlName="password"
             [(ngModel)]="registForm.password" autocomplete="off"
             required>
@@ -30,10 +33,10 @@
 
         <mat-form-field appearance="outline">
           <mat-label>Confirm Password</mat-label>
-          <input matInput 
-            placeholder="Confirm Password" 
+          <input matInput
+            placeholder="Confirm Password"
             type="password"
-            formControlName="confirmPassword" 
+            formControlName="confirmPassword"
             [(ngModel)]="confirmPassword"
             required>
           <mat-error *ngIf="reactiveForm.get('confirmPassword').hasError('required')">重复一遍你的密码啊

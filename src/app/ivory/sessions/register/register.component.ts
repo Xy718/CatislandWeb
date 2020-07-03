@@ -4,9 +4,13 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { RegistContentModel } from 'src/app/core/model/regist-content-model';
 import { Router, NavigationExtras } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { catchError } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { ResultBeanModel } from 'src/app/core/model/result-bean-model';
+import { MessageService } from 'src/app/shared/services/message.service';
 
 /**
- * 
+ *
  * @export
  * @class RegisterComponent
  * @implements {OnInit}
@@ -24,10 +28,11 @@ export class RegisterComponent implements OnInit {
     private fb: FormBuilder
     ,private auth:AuthService
     ,private router: Router
-		,public snackBar: MatSnackBar
+    ,public snackBar: MatSnackBar
+    ,public msg:MessageService
     ) {
     this.reactiveForm = this.fb.group({
-      username: ['', [Validators.required]],
+      username: ['', [Validators.required,Validators.pattern("^[a-zA-Z0-9\\s\\S]{5,24}$")]],
       password: ['', [Validators.required,Validators.pattern("^[a-zA-Z0-9\\s\\S]{6,32}$")]],
       confirmPassword: ['', [this.confirmValidator]],
     });
@@ -38,16 +43,17 @@ export class RegisterComponent implements OnInit {
   registForm=new RegistContentModel();
 	//注册状态，用来控制注册按钮
   inReg=false;
-  
+
   regiter(){
     //切换当前的注册状态用于控制表单样式
-    this.regStatus(true); 
-    //登录
-    this.auth.register(this.registForm)
-    .subscribe(result=>{
-      console.log(result);
-      this.openSnackBar(result);
+    this.regStatus(true);
+    //注册
+    this.auth.register(this.registForm).pipe(
+      catchError(this.msg.handleError("注册"))
+    )
+    .subscribe((result)=>{
       if(result.code=="0"){//成功
+        this.msg.success("注册成功！");
         //跳转到登录页面
         this.router.navigate(['/auth/login'],{queryParams:{username:this.registForm.username}});
       }else{
@@ -59,23 +65,11 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  	/**
-	 * 打开快餐提示栏，根据result自动样式
-	 * @param {ResultBeanModel} result 
-	 */
-	openSnackBar(result:any) {
-		this.snackBar.open(result.msg,"",{
-			duration:4000,
-			verticalPosition:result.code=="-1"?"bottom":"top",
-			panelClass:result.code=="-1"?["reg-fail-color"]:""
-		}); 
-	}
-
 	regStatus(status:boolean){
 		this.inReg=status;
 		status?this.reactiveForm.disable():this.reactiveForm.enable();
   }
-  
+
   confirmValidator = (control: FormControl): { [s: string]: boolean } => {
     if (!control.value) {
       return { error: true, required: true };

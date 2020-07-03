@@ -5,9 +5,9 @@
  * @class ResultBeanModel
  */
 export class ResultBeanModel<T> {
-    code:string="-1"; 
+    code:string="-1";
     msg:string="";
-    data:any; 
+    data:any;
 
     constructor(code:string,msg:string,data:any){
         this.code=code;
@@ -15,7 +15,7 @@ export class ResultBeanModel<T> {
         this.data=data;
     }
 
-    public static error(msg:string,data:any){
+    public static error(msg:string,data?:any){
         return new ResultBeanModel("-1",msg,data);
     }
 

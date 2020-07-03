@@ -1,4 +1,4 @@
-import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponseBase } from '@angular/common/http';
+import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponseBase, HttpResponse } from '@angular/common/http';
 import { Injectable, Injector } from '@angular/core';
 import { Router } from '@angular/router';
 import { DA_SERVICE_TOKEN, ITokenService } from '@delon/auth';
@@ -9,6 +9,7 @@ import { Observable, of, throwError } from 'rxjs';
 import { catchError, mergeMap } from 'rxjs/operators';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { MessageService } from 'src/app/shared/services/message.service';
+import { ResultBeanModel } from '../model/result-bean-model';
 
 const CODEMESSAGE = {
   200: '服务器成功返回请求的数据。',
@@ -52,7 +53,8 @@ export class DefaultInterceptor implements HttpInterceptor {
     }
 
     const errortext = CODEMESSAGE[ev.status] || ev.statusText;
-    this.notification.error(`请求错误 ${ev.status}: ${ev.url}`, errortext);
+    // this.notification.error(`请求错误 ${ev.status}: ${ev.url}`, errortext);
+    this.msg.error(`请求错误 ${ev.status}: ${errortext}`);
   }
 
   private handleData(ev: HttpResponseBase): Observable<any> {
@@ -69,20 +71,24 @@ export class DefaultInterceptor implements HttpInterceptor {
         //  错误内容：{ status: 1, msg: '非法参数' }
         //  正确内容：{ status: 0, response: {  } }
         // 则以下代码片断可直接适用
-        // if (event instanceof HttpResponse) {
-        //     const body: any = event.body;
-        //     if (body && body.status !== 0) {
-        //         this.msg.error(body.msg);
-        //         // 继续抛出错误中断后续所有 Pipe、subscribe 操作，因此：
-        //         // this.http.get('/').subscribe() 并不会触发
-        //         return throwError({});
-        //     } else {
-        //         // 重新修改 `body` 内容为 `response` 内容，对于绝大多数场景已经无须再关心业务状态码
-        //         return of(new HttpResponse(Object.assign(event, { body: body.response })));
-        //         // 或者依然保持完整的格式
-        //         return of(event);
-        //     }
-        // }
+        console.log(event);
+        if (event instanceof HttpResponse) {
+            const body: any = event.body;
+            if (body && body.code !== 0) {
+                this.msg.error(body.msg);
+                // 继续抛出错误中断后续所有 Pipe、subscribe 操作，因此：
+                // this.http.get('/').subscribe() 并不会触发
+                return throwError({});
+            } else {
+                // 重新修改 `body` 内容为 `response` 内容，对于绝大多数场景已经无须再关心业务状态码
+                // return of(new HttpResponse(Object.assign(event, { body: body.response })));
+                // 或者依然保持完整的格式
+                return of(event);
+            }
+        }
+        break;
+      case 400:
+        this.msg.error("参数出现错误:"+event);
         break;
       case 401:
         // this.notification.error(`未登录或登录已过期，请重新登录。`, ``);
@@ -90,6 +96,7 @@ export class DefaultInterceptor implements HttpInterceptor {
         (this.injector.get(DA_SERVICE_TOKEN) as ITokenService).clear();
         // this.goTo('/auth/login');
         this.msg.warn("登录状态已失效~");
+        //被拦截后除非你重新 throwError，否则订阅的部分无法捕获错误，其实 http 就是一个完整的 rxjs ，中间的拦截器无非也是对其各种连接、拼接最后订阅结果。
         break;
       case 403:
       case 404:
@@ -98,7 +105,7 @@ export class DefaultInterceptor implements HttpInterceptor {
         break;
       default:
         if (ev instanceof HttpErrorResponse) {
-          console.warn('未可知错误，大部分是由于后端不支持CORS或无效配置引起', ev);
+          console.warn('未知错误，大部分是由于后端不支持CORS或无效配置引起', ev);
         }
         break;
     }
