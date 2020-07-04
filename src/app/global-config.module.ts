@@ -26,6 +26,7 @@ const alainConfig: AlainConfig = {
       /\/auth\/*/
       , /assets\/*/
       , /topic\/*/
+      // , /\/user/
     ]
   },
   cache:{

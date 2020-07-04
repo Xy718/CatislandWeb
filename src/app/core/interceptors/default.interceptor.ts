@@ -10,6 +10,7 @@ import { catchError, mergeMap } from 'rxjs/operators';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { MessageService } from 'src/app/shared/services/message.service';
 import { ResultBeanModel } from '../model/result-bean-model';
+import { CacheService } from '@delon/cache';
 
 const CODEMESSAGE = {
   200: '服务器成功返回请求的数据。',
@@ -92,17 +93,22 @@ export class DefaultInterceptor implements HttpInterceptor {
         }
         break;
       case 400:
-        this.msg.error("参数出现错误:"+event);
+      this.msg.error("参数出现错误:"+event);
         break;
       case 401:
+        if((this.injector.get(DA_SERVICE_TOKEN) as ITokenService).get().token){
+          this.msg.warn("登录状态已失效~");
+        }
         // this.notification.error(`未登录或登录已过期，请重新登录。`, ``);
         // 清空 token 信息
         (this.injector.get(DA_SERVICE_TOKEN) as ITokenService).clear();
         // this.goTo('/auth/login');
-        this.msg.warn("登录状态已失效~");
-        //被拦截后除非你重新 throwError，否则订阅的部分无法捕获错误，其实 http 就是一个完整的 rxjs ，中间的拦截器无非也是对其各种连接、拼接最后订阅结果。
+        this.injector.get(CacheService).remove("userinfo");
         break;
       case 403:
+        this.msg.warn("您无权使用该操作~");
+        return of(ev);
+        break;
       case 404:
       case 500:
         this.goTo(`/exception/${ev.status}`);

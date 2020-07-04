@@ -7,6 +7,7 @@ import { ResultBeanModel } from 'src/app/core/model/result-bean-model';
 import { tap, catchError } from 'rxjs/operators';
 import { _HttpClient } from './http.client';
 import { RegistContentModel } from 'src/app/core/model/regist-content-model';
+import { JWTTokenModel } from '@delon/auth';
 
 @BaseUrl('/auth')
 @BaseHeaders({ 'Content-Type': 'application/json' })
@@ -14,7 +15,12 @@ import { RegistContentModel } from 'src/app/core/model/regist-content-model';
   providedIn: 'root'
 })
 export class AuthService extends BaseApi{
-	
+
+  @POST("/verifytoken")
+  verifytoken(@Body data:any) :Observable<ResultBeanModel<any>>{
+		return ;
+	}
+
 	@POST("/login")
 	login(@Body content:LoginContentModel):Observable<ResultBeanModel<any>>{
 		return ;
