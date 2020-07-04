@@ -11,11 +11,13 @@ export class TopToolbarComponent implements OnInit {
   constructor(
     public cacheSrv: CacheService
   ) {
-    
+
   }
 
   ngOnInit() {
-    this.userinfo=this.cacheSrv.getNone("userinfo");
+    this.cacheSrv.notify("userinfo").subscribe((data)=>{
+      this.userinfo=data;
+    });
   }
 
 }
