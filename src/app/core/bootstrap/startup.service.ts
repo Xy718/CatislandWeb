@@ -32,7 +32,7 @@ export class StartupService {
       this.authSrv.verifytoken({"jwt":token.token})
       .subscribe((result)=>{
         if(result.code=="0"){
-          if(!result.data.isexpired){
+          if(result.data.verified){
             //未过期,刷新UserInfo
             this.userSrv.getUserSelf()
             .subscribe(data=>{

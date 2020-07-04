@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
     <error-code
       code="404"
       [title]="'Page not found!'"
-      [message]="'This is not the web page you are looking for.'"
+      [message]="'这是个不存在的页面或者操作。。。。'"
     ></error-code>
   `,
 })
