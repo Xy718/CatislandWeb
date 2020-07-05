@@ -1,0 +1,32 @@
+button+button{
+    margin-left: 10px;
+}
+
+.nickname {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #262626;
+  color: rgba(var(--i1d,38,38,38),1);
+  font-weight: 300;
+  font-size: 28px;
+  line-height: 32px;
+  margin: -5px 0 -6px;
+}
+
+.simpleUserinfo {
+    -webkit-flex-basis: 30px;
+    -ms-flex-preferred-size: 30px;
+    flex-basis: 30px;
+    -webkit-box-flex: 2;
+    -webkit-flex-grow: 2;
+    -ms-flex-positive: 2;
+    flex-grow: 2;
+    color: #262626;
+    color: rgba(var(--i1d,38,38,38),1);
+    -webkit-flex-shrink: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    min-width: 0;
+}

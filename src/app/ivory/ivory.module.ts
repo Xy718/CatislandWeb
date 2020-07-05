@@ -1,6 +1,5 @@
 import { SwiperModule } from 'ngx-swiper-wrapper';
 import { MaterialModule } from './../material.module';
-import { UserPanelComponent } from 'src/app/shared/components/user-panel/user-panel.component';
 import { SharedModule } from './../shared/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { LoginComponent } from './sessions/login/login.component';
@@ -19,6 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TopToolbarComponent } from '../shared/components/top-toolbar/top-toolbar.component';
 import { FooterToolbarComponent } from '../shared/components/footer-toolbar/footer-toolbar.component';
 import { MainPageComponent } from '../shared/components/main-page/main-page.component';
+import { UserPanelComponent } from './user-panel/user-panel.component';
 
 @NgModule({
   exports:[
@@ -46,8 +46,8 @@ import { MainPageComponent } from '../shared/components/main-page/main-page.comp
     UserPanelComponent
   ]
 })
-export class IvoryModule { 
-  
+export class IvoryModule {
+
   constructor(library:FaIconLibrary){
     library.addIconPacks(fas,far,fab);
  }

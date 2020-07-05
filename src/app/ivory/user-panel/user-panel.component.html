@@ -1,0 +1,27 @@
+<!-- 上面 -->
+<div>
+  <nz-avatar
+    [nzSize]="150"
+    nzSrc="{{userinfo? userinfo.avatar:null}}"
+    nzAlt="{{userinfo? userinfo.nickname:null}}"
+    nzIcon="user"
+    [style]="userinfo? 'background-color:#87d068;':null"
+    ></nz-avatar>
+
+  <section class="simpleUserinfo" style="float: right;">
+    <div class="">
+      <h2 class="nickname">{{userinfo.nickName}}</h2>
+      <span class="username">#{{userinfo.userName}}</span>
+    </div>
+    <ul class="k9GMp ">
+      <li class="Y8-fY ">
+        <span class="-nal3 ">
+          <span class="g47SY ">1</span> 帖子</span></li>
+      <li class="Y8-fY "><a class="-nal3 " href="/xiao_yao_718/followers/" tabindex="0"><span class="g47SY " title="0">NaN</span> 粉丝</a></li>
+      <li class="Y8-fY "><a class="-nal3 " href="/xiao_yao_718/following/" tabindex="0">正在关注 <span class="g47SY ">10</span></a></li>
+    </ul>
+  </section>
+</div>
+<button mat-raised-button color="primary" routerLink="/auth/login">login</button>
+<button mat-raised-button color="primary" routerLink="/auth/register">《register》</button>
+<button mat-raised-button color="primary" routerLink="/login">404</button>

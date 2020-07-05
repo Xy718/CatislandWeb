@@ -8,10 +8,10 @@ import { LoginComponent } from './sessions/login/login.component';
 import { RegisterComponent } from './sessions/register/register.component';
 import { IndexComponent } from './index/index.component';
 import { MainPageComponent } from '../shared/components/main-page/main-page.component';
-import { UserPanelComponent } from '../shared/components/user-panel/user-panel.component';
 import { Error403Component } from './sessions/403.component';
 import { Error404Component } from './sessions/404.component';
 import { Error500Component } from './sessions/500.component';
+import { UserPanelComponent } from './user-panel/user-panel.component';
 
 const routes: Routes = [
   {

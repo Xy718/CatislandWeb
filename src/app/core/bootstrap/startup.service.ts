@@ -54,27 +54,6 @@ export class StartupService {
       });
     }
     return null;
-  //   return new Promise((resolve, reject) => {
-  //     this.http
-  //       .get('assets/data/menu.json?_t=' + Date.now())
-  //       .pipe(
-  //         catchError(res => {
-  //           resolve();
-  //           return res;
-  //         })
-  //       )
-  //       .subscribe(
-  //         (res: any) => {
-  //           this.menuService.recursMenuForTranslation(res.menu, 'menu');
-  //           this.menuService.set(res.menu);
-  //         },
-  //         () => {},
-  //         () => {
-  //           resolve();
-  //         }
-  //       );
-  //   });
-  // }
   }
 
   clearTokenANDMsg(){

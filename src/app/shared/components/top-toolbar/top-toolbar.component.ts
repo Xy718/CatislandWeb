@@ -16,7 +16,7 @@ export class TopToolbarComponent implements OnInit {
 
   ngOnInit() {
     this.cacheSrv.notify("userinfo").subscribe((data)=>{
-      this.userinfo=data;
+      this.userinfo=this.cacheSrv.getNone("userinfo");
     });
   }
 

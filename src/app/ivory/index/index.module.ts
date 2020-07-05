@@ -11,11 +11,7 @@ import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontaweso
 import { Error404Component } from '../sessions/404.component';
 import { Error403Component } from '../sessions/403.component';
 import { Error500Component } from '../sessions/500.component';
-import { MatButtonModule, MatButton } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
-import { TopToolbarComponent } from 'src/app/shared/components/top-toolbar/top-toolbar.component';
-import { MatCardModule } from '@angular/material/card';
-import { UserPanelComponent } from 'src/app/shared/components/user-panel/user-panel.component';
 import { NzNotificationService } from 'ng-zorro-antd/notification/public-api';
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 @NgModule({
@@ -36,7 +32,7 @@ import { NzAvatarModule } from 'ng-zorro-antd/avatar';
   providers:[
     NzNotificationService]
 })
-export class IndexModule { 
+export class IndexModule {
   constructor(library:FaIconLibrary){
     library.addIconPacks(fas,far,fab);
  }

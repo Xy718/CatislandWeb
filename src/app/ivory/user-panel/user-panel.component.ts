@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CacheService } from '@delon/cache';
 
 @Component({
   selector: 'app-user-panel',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-panel.component.css']
 })
 export class UserPanelComponent implements OnInit {
-
-  constructor() { }
-
+  userinfo:any;
+  constructor(
+    public cacheSrv: CacheService
+  ) {
+    this.cacheSrv.notify("userinfo").subscribe((data)=>{
+      this.userinfo=this.cacheSrv.getNone("userinfo");
+    });
+  }
   ngOnInit() {
+
   }
 
 }
