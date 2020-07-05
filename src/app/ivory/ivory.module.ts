@@ -19,6 +19,7 @@ import { TopToolbarComponent } from '../shared/components/top-toolbar/top-toolba
 import { FooterToolbarComponent } from '../shared/components/footer-toolbar/footer-toolbar.component';
 import { MainPageComponent } from '../shared/components/main-page/main-page.component';
 import { UserPanelComponent } from './user-panel/user-panel.component';
+import { NzGridModule } from 'ng-zorro-antd/grid';
 
 @NgModule({
   exports:[
@@ -32,6 +33,7 @@ import { UserPanelComponent } from './user-panel/user-panel.component';
     RouterModule,
     ReactiveFormsModule,
     SharedModule,
+    NzGridModule,
     MaterialModule,
     ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
     SwiperModule,

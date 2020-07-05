@@ -16,11 +16,9 @@
   }
 
   .content {
-    display: flex;
     margin: 82px auto 32px;
     padding: 0 16px;
-    max-width: 1060px;
-    flex-direction: column;
+    // max-width: 1060px;
     align-items: center;
     min-height: 700px;
   }
@@ -221,7 +219,7 @@
     z-index: -10;
     width: 1920px;
   }
-  
+
   #background{
     position: fixed;
     bottom: -160px;

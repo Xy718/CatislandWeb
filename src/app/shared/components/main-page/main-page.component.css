@@ -7,17 +7,16 @@ margin-top: unset;
 border-top-left-radius: inherit;
 border-top-right-radius: inherit;
 }
-  
-  
+
 .topic-card {
-    max-width: 960px;
+    /* max-width: 960px; */
     width: 100%;
     margin-bottom: 10px;
     -moz-box-shadow: 2px 4px 9px #888888;
     -webkit-box-shadow: 2px 4px 9px #888888;
     box-shadow: 2px 4px 9px #888888;
 }
-  
+
 .topic-header-image {
     background-size: cover;
 }
