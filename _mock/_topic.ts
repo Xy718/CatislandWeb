@@ -28,7 +28,7 @@ export const topics:TopicModel[]=[
         email: "123@qq.com",
         userintro:"心·技·体",
       }
-        
+
     },
     {
       tid:0,
@@ -101,7 +101,7 @@ export const topics:TopicModel[]=[
 ];
 
 export const topic = {
-    'GET /topic/all': getTopics(),
+    // 'GET /topic/all': getTopics(),
   };
 
 function getTopics(){

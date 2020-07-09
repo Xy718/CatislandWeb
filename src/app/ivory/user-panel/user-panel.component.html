@@ -1,7 +1,8 @@
 <!-- 上面 -->
 <div nz-row>
-  <div nz-col [nzSpan]="4">
+  <div nz-col [nzSpan]="6">
     <nz-avatar
+    class="useravatar"
     [nzSize]="150"
     nzSrc="{{userinfo? userinfo.avatar:null}}"
     nzAlt="{{userinfo? userinfo.nickname:null}}"
@@ -11,8 +12,8 @@
   </div>
   <div nz-col [nzSpan]="14">
     <div class="">
-      <h2 class="">{{userinfo? userinfo.nickName:null}}</h2>
-      <span class="">#{{userinfo? userinfo.userName:null}}</span>
+      <span class="nickname">{{userinfo? userinfo.nickName:null}}</span>
+      <span class="username">#{{userinfo? userinfo.uid:null}}</span>
     </div>
     <ul class="k9GMp ">
       <li class="Y8-fY ">

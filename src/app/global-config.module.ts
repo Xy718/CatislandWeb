@@ -25,7 +25,7 @@ const alainConfig: AlainConfig = {
 		ignores:[
       /\/auth\/*/
       , /assets\/*/
-      , /topic\/*/
+      , /topic\/all/
       // , /\/user/
     ]
   },
