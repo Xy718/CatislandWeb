@@ -5,6 +5,7 @@ button+button{
 .useravatar{
   border: 1px solid rgb(136, 136, 136);
   border-radius: 100px;
+  background-color: unset!important;
 }
 .nickname{
   font-size: 53px;
@@ -21,4 +22,28 @@ button+button{
   position: relative;
   color: rgba(0, 0, 0, 0.3);
   font-weight: bold;
+  margin-left: 4px;
+}
+.infoList{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  font-size: 16px;
+}
+.infoNode{
+  margin-right: 40px;
+}
+.infoNode a{
+  color: inherit;
+}
+.infoValue{
+  color: #262626;
+  color: rgba(var(--i1d,38,38,38),1);
+  font-weight: 600;
 }

@@ -15,12 +15,13 @@
       class="top-avatar" 
       routerLink="{{ userinfo ? ['/user']:['/auth/login'] }}" 
       title="{{userinfo? '我的':'去登录啊，看什么'}}">
-      <nz-avatar  [nzSize]="40"
-                  nzSrc="{{userinfo? userinfo.avatar:null}}"
-                  nzAlt="{{userinfo? userinfo.nickname:null}}"
-                  nzIcon="user"
-                  [style]="userinfo? 'background-color:#87d068;':null"
-                  ></nz-avatar>
+      <nz-avatar  
+        [nzSize]="40"
+        nzSrc="{{userinfo? userinfo.avatar:null}}"
+        nzAlt="{{userinfo? userinfo.nickname:null}}"
+        nzIcon="user"
+        [style]="userinfo? 'background-color:#87d068;':null"
+        ></nz-avatar>
     </a>
   </div>
 </div>

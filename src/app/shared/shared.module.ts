@@ -19,6 +19,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { ErrorCodeComponent } from './components/error-code/error-code.component'
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 
 const THIRD_MODULES = [
   MaterialModule,
@@ -34,6 +35,7 @@ const THIRD_MODULES = [
   TranslateModule,
   NzIconModule,
   NzAvatarModule,
+  NzToolTipModule,
 ];
 const COMPONENTS = [ ErrorCodeComponent];
 const COMPONENTS_DYNAMIC = [];

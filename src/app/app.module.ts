@@ -26,6 +26,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 
 // 引入你需要的图标，比如你需要 fill 主题的 AccountBook Alert 和 outline 主题的 Alert，推荐 ✔️
 import { AccountBookFill, AlertFill, AlertOutline } from '@ant-design/icons-angular/icons';
+import { DelonACLModule } from '@delon/acl';
 
 const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill ];
 
@@ -54,6 +55,7 @@ export function StartupServiceFactory(startupService: StartupService) {
       NzNotificationModule,
       DelonCacheModule,
       NzIconModule.forRoot(icons),
+      DelonACLModule.forRoot()
    ],
    providers: [
       {

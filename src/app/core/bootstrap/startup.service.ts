@@ -8,6 +8,8 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 import { MessageService } from 'src/app/shared/services/message.service';
 import { Observable, of } from 'rxjs';
 import { ResultBeanModel } from '../model/result-bean-model';
+import { ACLService } from '@delon/acl';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class StartupService {
@@ -18,7 +20,9 @@ export class StartupService {
     ,private authSrv: AuthService
     ,private msg: MessageService
     ,@Inject(DA_SERVICE_TOKEN)
-    private tokenService: ITokenService
+    private tokenService: ITokenService,
+    private aclSrv:ACLService,
+		private router: Router,
     ) {}
 
   load(): Promise<any> {
@@ -38,6 +42,7 @@ export class StartupService {
             .subscribe(data=>{
               if(data.code=="0"){
                 this.cacheSrv.set("userinfo",data.data);
+                this.aclSrv.setRole(['USER']);
               }else{
                 //已过期
                 this.clearTokenANDMsg();
@@ -53,12 +58,14 @@ export class StartupService {
         }
       });
     }
+
     return null;
   }
 
   clearTokenANDMsg(){
     this.tokenService.clear();
     this.msg.warn("登录状态已过期~");
+    this.router.navigateByUrl('/');
   }
 
   handleError(): (err: any, caught: import("rxjs").Observable<any>) => import("rxjs").ObservableInput<any> {

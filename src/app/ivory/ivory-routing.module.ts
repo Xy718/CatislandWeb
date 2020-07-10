@@ -12,6 +12,7 @@ import { Error403Component } from './sessions/403.component';
 import { Error404Component } from './sessions/404.component';
 import { Error500Component } from './sessions/500.component';
 import { UserPanelComponent } from './user-panel/user-panel.component';
+import { ACLGuard } from '@delon/acl';
 
 const routes: Routes = [
   {
@@ -19,7 +20,7 @@ const routes: Routes = [
     component: IndexComponent,
     children: [
       {path: '',component: MainPageComponent,},
-      {path: 'user',component: UserPanelComponent,},
+      {path: 'user', canActivate: [ ACLGuard ], data: { guard: 'USER' ,guard_url: '/'},component: UserPanelComponent,},
       {path: '403',component: Error403Component,data: { title: '403 Forbidden', titleI18n: '403 Forbidden' },},
       {path: '404',component: Error404Component,data: { title: '404 Not Found', titleI18n: '404 Not Found' },},
       {path: '500',component: Error500Component,data: { title: '500 Error', titleI18n: '500 Error' },},

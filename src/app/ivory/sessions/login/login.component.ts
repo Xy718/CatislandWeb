@@ -11,6 +11,7 @@ import { MessageService } from 'src/app/shared/services/message.service';
 import { CacheService } from '@delon/cache';
 import { UserService } from 'src/app/shared/services/user.service';
 import { catchError } from 'rxjs/operators';
+import { ACLService } from '@delon/acl';
 
 /**
  * @Author: Xy718
@@ -43,6 +44,7 @@ export class LoginComponent implements OnInit {
 		private msg:MessageService,
 		private cacheSrv:CacheService,
 		private userSrv:UserService,
+		private aclSrv:ACLService,
 	) {
 		this.reactiveForm = this.fb.group({
 		username: ['', Validators.required],
@@ -75,6 +77,7 @@ export class LoginComponent implements OnInit {
 				this.userSrv.getUserSelf().subscribe(data=>{
           this.cacheSrv.set("userinfo",data.data);
           //跳转页面
+          this.aclSrv.setRole(['USER']);
           this.router.navigateByUrl('/');
           // this.router.navigate(["/"]);
 				});

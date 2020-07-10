@@ -1,5 +1,5 @@
 <!-- 上面 -->
-<div nz-row>
+<div nz-row style="margin-bottom: 20px;">
   <div nz-col [nzSpan]="6">
     <nz-avatar
     class="useravatar"
@@ -13,17 +13,29 @@
   <div nz-col [nzSpan]="14">
     <div class="">
       <span class="nickname">{{userinfo? userinfo.nickName:null}}</span>
-      <span class="username">#{{userinfo? userinfo.uid:null}}</span>
+      <span class="username" nz-tooltip nzTooltipPlacement="right" nzTooltipTitle="这是你的唯一ID哦">#{{userinfo? userinfo.uid:null}}</span>
     </div>
-    <ul class="k9GMp ">
-      <li class="Y8-fY ">
-        <span class="-nal3 ">
-          <span class="g47SY ">1</span> 帖子</span></li>
-      <li class="Y8-fY "><a class="-nal3 " href="/xiao_yao_718/followers/" tabindex="0"><span class="g47SY " title="0">NaN</span> 粉丝</a></li>
-      <li class="Y8-fY "><a class="-nal3 " href="/xiao_yao_718/following/" tabindex="0">正在关注 <span class="g47SY ">10</span></a></li>
+    <!-- 个性扣扣签名 -->
+    <span>{{userinfo?userinfo.userintro:null}}</span>
+    <!-- 一些信息 -->
+    <ul class="infoList">
+      <li class="infoNode">
+        <span class="infoValue">1</span>
+        <span>帖子</span>
+      </li>
+      <li class="infoNode">
+        <a class="" href="/xiao_yao_718/followers/" tabindex="0">
+          <span class="infoValue" title="0">NaN</span> 粉丝
+        </a>
+      </li>
+      <li class="infoNode">
+        <a class="" href="/xiao_yao_718/following/" tabindex="0">正在关注
+          <span class="infoValue ">10</span></a>
+      </li>
     </ul>
   </div>
 </div>
+<!-- tab部分以及下面 -->
 <button mat-raised-button color="primary" routerLink="/auth/login">login</button>
 <button mat-raised-button color="primary" routerLink="/auth/register">register</button>
-<button mat-raised-button color="primary" routerLink="/login">404</button>
+<button mat-raised-button color="primary" routerLink="/login" nz-tooltip nzTooltipTitle="????">404</button>
