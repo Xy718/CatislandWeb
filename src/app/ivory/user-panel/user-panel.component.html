@@ -11,12 +11,13 @@
     ></nz-avatar>
   </div>
   <div nz-col [nzSpan]="14">
+    <!-- 用户名和网名 -->
     <div class="">
       <span class="nickname">{{userinfo? userinfo.nickName:null}}</span>
       <span class="username" nz-tooltip nzTooltipPlacement="right" nzTooltipTitle="这是你的唯一ID哦">#{{userinfo? userinfo.uid:null}}</span>
     </div>
     <!-- 个性扣扣签名 -->
-    <span>{{userinfo?userinfo.userintro:null}}</span>
+    <span class="intro">{{userinfo?userinfo.userintro:null}}</span>
     <!-- 一些信息 -->
     <ul class="infoList">
       <li class="infoNode">
@@ -36,6 +37,13 @@
   </div>
 </div>
 <!-- tab部分以及下面 -->
+<nz-tabset>
+  <nz-tab *ngFor="let tab of tabs" [nzTitle]="titleTemplate" >
+    <ng-template #titleTemplate> <i nz-icon [nzType]="tab.icon"></i>{{ tab.name }} </ng-template>
+    {{ tab.name }}
+  </nz-tab>
+</nz-tabset>
+
 <button mat-raised-button color="primary" routerLink="/auth/login">login</button>
 <button mat-raised-button color="primary" routerLink="/auth/register">register</button>
 <button mat-raised-button color="primary" routerLink="/login" nz-tooltip nzTooltipTitle="????">404</button>
