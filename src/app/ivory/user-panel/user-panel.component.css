@@ -23,7 +23,14 @@ button+button{
   position: relative;
   color: rgba(0, 0, 0, 0.3);
   font-weight: bold;
-  margin-left: 4px;
+  margin-left: 5px;
+}
+.username+i{
+  font-size: 18px;
+  top: -16px;
+  position: relative;
+  color: rgba(0, 0, 0, 0.3);
+  margin-left: 10px;
 }
 .infoList{
   display: -webkit-box;

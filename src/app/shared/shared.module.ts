@@ -22,6 +22,8 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 import { NzTabsModule } from 'ng-zorro-antd/tabs';
 
+import { NzElementPatchModule } from 'ng-zorro-antd/core/element-patch'
+
 const THIRD_MODULES = [
   MaterialModule,
   MaterialExtensionsModule,
@@ -38,6 +40,7 @@ const THIRD_MODULES = [
   NzAvatarModule,
   NzToolTipModule,
   NzTabsModule,
+  NzElementPatchModule,
 ];
 const COMPONENTS = [ ErrorCodeComponent];
 const COMPONENTS_DYNAMIC = [];

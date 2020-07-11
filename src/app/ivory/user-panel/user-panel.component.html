@@ -14,7 +14,10 @@
     <!-- 用户名和网名 -->
     <div class="">
       <span class="nickname">{{userinfo? userinfo.nickName:null}}</span>
-      <span class="username" nz-tooltip nzTooltipPlacement="right" nzTooltipTitle="这是你的唯一ID哦">#{{userinfo? userinfo.uid:null}}</span>
+      <span class="username" nz-element #username="nzElement">#{{userinfo? userinfo.uid:null}}</span>
+      <i nz-icon nzType="question-circle" nzTheme="outline"
+        nz-tooltip nzTooltipPlacement="right"nzTooltipTitle="这是你的唯一ID哦" [nzTooltipOrigin]="username.elementRef"
+      ></i>
     </div>
     <!-- 个性扣扣签名 -->
     <span class="intro">{{userinfo?userinfo.userintro:null}}</span>
@@ -37,13 +40,21 @@
   </div>
 </div>
 <!-- tab部分以及下面 -->
-<nz-tabset>
-  <nz-tab *ngFor="let tab of tabs" [nzTitle]="titleTemplate" >
-    <ng-template #titleTemplate> <i nz-icon [nzType]="tab.icon"></i>{{ tab.name }} </ng-template>
-    {{ tab.name }}
+<nz-tabset nzSize="large">
+  <nz-tab [nzTitle]="titleTemplate1" >
+    <ng-template #titleTemplate1> <i nz-icon [nzType]="'instagram'"></i>帖子</ng-template>
+    <app-user-topic></app-user-topic>
+  </nz-tab>
+  <nz-tab [nzTitle]="titleTemplate2" >
+    <ng-template #titleTemplate2> <i nz-icon [nzType]="'message'"></i>近期消息</ng-template>
+    456
+  </nz-tab>
+  <nz-tab [nzTitle]="titleTemplate3" >
+    <ng-template #titleTemplate3> <i nz-icon [nzType]="'cloud-server'"></i>云储存详情</ng-template>
+    333
+  </nz-tab>
+  <nz-tab [nzTitle]="titleTemplate4" >
+    <ng-template #titleTemplate4> <i nz-icon [nzType]="'user-switch'"></i>游戏数据</ng-template>
+    444
   </nz-tab>
 </nz-tabset>
-
-<button mat-raised-button color="primary" routerLink="/auth/login">login</button>
-<button mat-raised-button color="primary" routerLink="/auth/register">register</button>
-<button mat-raised-button color="primary" routerLink="/login" nz-tooltip nzTooltipTitle="????">404</button>

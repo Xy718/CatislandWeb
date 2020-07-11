@@ -13,6 +13,7 @@ import { Error404Component } from './sessions/404.component';
 import { Error500Component } from './sessions/500.component';
 import { UserPanelComponent } from './user-panel/user-panel.component';
 import { ACLGuard } from '@delon/acl';
+import { UserTopicComponent } from './user-panel/user-topic/user-topic.component';
 
 const routes: Routes = [
   {

@@ -14,5 +14,9 @@ export class TopicService extends BaseApi{
   @GET("/all")
 	getAllTopic():Observable<ResultBeanModel<TopicModel[]>>{
 		return ;
+  }
+  @GET("/all")
+	getMineTopicForPage():Observable<ResultBeanModel<TopicModel[]>>{
+		return ;
 	}
 }
