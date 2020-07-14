@@ -63,3 +63,6 @@ button+button{
 .avatarChoseMenu{
   border-radius: 10px;
 }
+.avatarChoseMenu>li{
+  border-radius: 10px;
+}

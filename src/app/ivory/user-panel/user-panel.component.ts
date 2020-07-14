@@ -8,8 +8,9 @@ import { CacheService } from '@delon/cache';
 })
 export class UserPanelComponent implements OnInit {
   userinfo:any;
+  AvatarChoseType:any=AvatarChoseType;
   constructor(
-    public cacheSrv: CacheService,
+    public cacheSrv: CacheService
   ) {
     this.cacheSrv.notify("userinfo").subscribe((data)=>{
       this.userinfo=this.cacheSrv.getNone("userinfo");
@@ -20,4 +21,13 @@ export class UserPanelComponent implements OnInit {
 
   }
 
+  choseAvatar(type:AvatarChoseType){
+    console.log(type);
+  }
+
+}
+
+enum AvatarChoseType{
+  EDIT=0,
+  REMOVE=1,
 }

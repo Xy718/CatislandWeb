@@ -20,11 +20,11 @@ const routes: Routes = [
     path: '',
     component: IndexComponent,
     children: [
-      {path: '',component: MainPageComponent,},
-      {path: 'user', canActivate: [ ACLGuard ], data: { guard: 'USER' ,guard_url: '/'},component: UserPanelComponent,},
-      {path: '403',component: Error403Component,data: { title: '403 Forbidden', titleI18n: '403 Forbidden' },},
-      {path: '404',component: Error404Component,data: { title: '404 Not Found', titleI18n: '404 Not Found' },},
-      {path: '500',component: Error500Component,data: { title: '500 Error', titleI18n: '500 Error' },},
+      {path: '', component: MainPageComponent, },
+      {path: 'user', canActivate: [ ACLGuard ], data: { guard: 'USER' , guard_url: '/'}, component: UserPanelComponent, },
+      {path: '403', component: Error403Component, data: { title: '403 Forbidden', titleI18n: '403 Forbidden' }, },
+      {path: '404', component: Error404Component, data: { title: '404 Not Found', titleI18n: '404 Not Found' }, },
+      {path: '500', component: Error500Component, data: { title: '500 Error', titleI18n: '500 Error' }, },
     ],
   },
   {
@@ -32,7 +32,7 @@ const routes: Routes = [
     component: AuthLayoutComponent,
     children: [
       { path: 'login', component: LoginComponent },
-      { path: 'register',component: RegisterComponent},
+      { path: 'register', component: RegisterComponent},
     ],
   },
   { path: '**', redirectTo: '404' },

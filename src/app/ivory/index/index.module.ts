@@ -14,6 +14,7 @@ import { Error500Component } from '../sessions/500.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NzNotificationService } from 'ng-zorro-antd/notification/public-api';
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
+import { NzAffixModule } from 'ng-zorro-antd/affix';
 @NgModule({
   imports: [
     RouterModule,
@@ -23,17 +24,18 @@ import { NzAvatarModule } from 'ng-zorro-antd/avatar';
     SharedModule,
     SwiperModule,
     NzAvatarModule,
+    NzAffixModule,
   ],
   declarations: [
     Error404Component
     , Error403Component
     , Error500Component
   ],
-  providers:[
+  providers: [
     NzNotificationService]
 })
 export class IndexModule {
-  constructor(library:FaIconLibrary){
-    library.addIconPacks(fas,far,fab);
+  constructor(library: FaIconLibrary){
+    library.addIconPacks(fas, far, fab);
  }
 }

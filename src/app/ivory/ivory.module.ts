@@ -21,6 +21,8 @@ import { MainPageComponent } from '../shared/components/main-page/main-page.comp
 import { UserPanelComponent } from './user-panel/user-panel.component';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { UserTopicComponent } from './user-panel/user-topic/user-topic.component';
+import { NzAffixModule } from 'ng-zorro-antd/affix';
+
 
 @NgModule({
   exports:[
@@ -38,6 +40,7 @@ import { UserTopicComponent } from './user-panel/user-topic/user-topic.component
     MaterialModule,
     ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
     SwiperModule,
+    NzAffixModule,
   ],
   declarations: [
     LoginComponent,

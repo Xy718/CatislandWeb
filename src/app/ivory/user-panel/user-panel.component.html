@@ -13,9 +13,9 @@
         ></nz-avatar>
         <nz-dropdown-menu #avatarChose="nzDropdownMenu">
           <ul nz-menu class="avatarChoseMenu">
-            <li nz-menu-item [nzDisabled]="(userinfo.avatar&&userinfo.avatar!='')||!userinfo.avatar?false:true"><i nz-icon nzType="delete" nzTheme="outline"></i>移除头像</li>
+            <li nz-menu-item (click)="choseAvatar(AvatarChoseType.REMOVE)" [nzDisabled]="(userinfo.avatar&&userinfo.avatar!='')||!userinfo.avatar?false:true"><i nz-icon nzType="delete" nzTheme="outline"></i>移除头像</li>
             <li nz-menu-divider></li>
-            <li nz-menu-item><i nz-icon nzType="edit" nzTheme="outline"></i>换一个头像</li>
+            <li nz-menu-item (click)="choseAvatar(AvatarChoseType.EDIT)"><i nz-icon nzType="edit" nzTheme="outline"></i>换一个头像</li>
           </ul>
         </nz-dropdown-menu>
   </div>

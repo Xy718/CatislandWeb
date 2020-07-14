@@ -1,5 +1,8 @@
 
 <app-top-toolbar></app-top-toolbar>
+
+
+
 <div nz-row>
   <div nz-col [nzSpan]="14" class="content" role="main">
     <router-outlet></router-outlet>
@@ -9,5 +12,11 @@
     </svg> -->
   </div>
 </div>
+
+<nz-affix [nzOffsetBottom]="100">
+  <a nz-button nzShape="circle" nzSize="large" (click)="donate()">
+    <i nz-icon nzType="money-collect" nzTheme="fill" style="font-size: 29px;margin-top: -9px;"></i>
+  </a>
+</nz-affix>
 
 <app-footer-toolbar></app-footer-toolbar>

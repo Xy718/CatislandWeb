@@ -1,6 +1,6 @@
 <!-- Toolbar -->
 <div nz-row class="toolbar">
-  <div nz-col [nzSpan]="14" class="content">
+  <div nz-col [nzSpan]="14" class="top-content">
     <a class="headLeft" [routerLink]="['/']" >
 			<embed id="pro_logo_1" src="/assets/img/ci_logo.svg" alt=""/>
 			<span>CatIsland-象牙塔</span>
@@ -11,11 +11,11 @@
     <div *ngIf="!userinfo">
       <a [routerLink]="['/auth/login']" >登录/注册</a>
     </div>
-    <a 
-      class="top-avatar" 
-      routerLink="{{ userinfo ? ['/user']:['/auth/login'] }}" 
+    <a
+      class="top-avatar"
+      routerLink="{{ userinfo ? ['/user']:['/auth/login'] }}"
       title="{{userinfo? '我的':'去登录啊，看什么'}}">
-      <nz-avatar  
+      <nz-avatar
         [nzSize]="40"
         nzSrc="{{userinfo? userinfo.avatar:null}}"
         nzAlt="{{userinfo? userinfo.nickname:null}}"
