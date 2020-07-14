@@ -1,14 +1,23 @@
 <!-- 上面 -->
 <div nz-row style="margin-bottom: 20px;">
   <div nz-col [nzSpan]="6">
-    <nz-avatar
-    class="useravatar"
-    [nzSize]="150"
-    nzSrc="{{userinfo? userinfo.avatar:null}}"
-    nzAlt="{{userinfo? userinfo.nickname:null}}"
-    nzIcon="user"
-    [style]="userinfo? 'background-color:#87d068;':null"
-    ></nz-avatar>
+        <nz-avatar
+          class="useravatar"
+          [nzSize]="150"
+          nzSrc="{{userinfo? userinfo.avatar:null}}"
+          nzAlt="{{userinfo? userinfo.nickname:null}}"
+          nzIcon="user"
+          [style]="userinfo? 'background-color:#87d068;':null"
+          nz-dropdown [nzDropdownMenu]="avatarChose" [nzPlacement]="'bottomCenter'"
+          [nzTrigger]="'click'"
+        ></nz-avatar>
+        <nz-dropdown-menu #avatarChose="nzDropdownMenu">
+          <ul nz-menu class="avatarChoseMenu">
+            <li nz-menu-item [nzDisabled]="(userinfo.avatar&&userinfo.avatar!='')||!userinfo.avatar?false:true"><i nz-icon nzType="delete" nzTheme="outline"></i>移除头像</li>
+            <li nz-menu-divider></li>
+            <li nz-menu-item><i nz-icon nzType="edit" nzTheme="outline"></i>换一个头像</li>
+          </ul>
+        </nz-dropdown-menu>
   </div>
   <div nz-col [nzSpan]="14">
     <!-- 用户名和网名 -->

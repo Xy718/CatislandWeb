@@ -9,12 +9,13 @@ import { CacheService } from '@delon/cache';
 export class UserPanelComponent implements OnInit {
   userinfo:any;
   constructor(
-    public cacheSrv: CacheService
+    public cacheSrv: CacheService,
   ) {
     this.cacheSrv.notify("userinfo").subscribe((data)=>{
       this.userinfo=this.cacheSrv.getNone("userinfo");
     });
   }
+
   ngOnInit() {
 
   }

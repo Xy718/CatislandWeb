@@ -6,6 +6,7 @@ button+button{
   border: 1px solid rgb(136, 136, 136);
   border-radius: 100px;
   background-color: unset!important;
+  cursor: pointer;
 }
 .nickname{
   font-size: 53px;
@@ -57,4 +58,8 @@ button+button{
 }
 .intro{
   color: #464646;
+}
+
+.avatarChoseMenu{
+  border-radius: 10px;
 }

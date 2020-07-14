@@ -21,8 +21,11 @@ import { ErrorCodeComponent } from './components/error-code/error-code.component
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 import { NzTabsModule } from 'ng-zorro-antd/tabs';
+import { NzPopoverModule } from 'ng-zorro-antd/popover';
 
 import { NzElementPatchModule } from 'ng-zorro-antd/core/element-patch'
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 
 const THIRD_MODULES = [
   MaterialModule,
@@ -41,6 +44,9 @@ const THIRD_MODULES = [
   NzToolTipModule,
   NzTabsModule,
   NzElementPatchModule,
+  NzButtonModule,
+  NzPopoverModule,
+  NzDropDownModule,
 ];
 const COMPONENTS = [ ErrorCodeComponent];
 const COMPONENTS_DYNAMIC = [];
