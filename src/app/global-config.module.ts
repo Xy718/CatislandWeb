@@ -5,6 +5,7 @@ import * as MOCKDATA from '../../_mock';
 import { environment } from 'src/environments/environment';
 import { throwIfAlreadyLoaded } from './core/module-import-guard';
 import { DelonMockModule } from '@delon/mock';
+import { NzIconService } from 'ng-zorro-antd/icon';
 
 let exp_module=[];
 const alainConfig: AlainConfig = {
@@ -42,6 +43,8 @@ const alainConfig: AlainConfig = {
 
 const alainProvides = [{ provide: ALAIN_CONFIG, useValue: alainConfig }];
 
+export const recharge_imgs=['http://ivory.test.upcdn.net/static/xy718/recharge_alipay.jpg','http://ivory.test.upcdn.net/static/xy718/recharge_wechat.png'];
+
 @NgModule({
   imports:[...exp_module],
   providers: [
@@ -49,8 +52,15 @@ const alainProvides = [{ provide: ALAIN_CONFIG, useValue: alainConfig }];
   ],
 })
 export class GlobalConfigModule {
-  constructor(@Optional() @SkipSelf() parentModule: GlobalConfigModule) {
+  constructor(
+    @Optional() @SkipSelf() 
+    parentModule: GlobalConfigModule,
+    private iconService:NzIconService,
+    ) {
     throwIfAlreadyLoaded(parentModule, 'GlobalConfigModule');
+    this.iconService.fetchFromIconfont({
+      scriptUrl: '//at.alicdn.com/t/font_1937171_sqyqv95jhpb.js'
+    });
   }
 
   static forRoot(): ModuleWithProviders {

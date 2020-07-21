@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CacheService } from '@delon/cache';
+import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-user-panel',
@@ -10,7 +11,8 @@ export class UserPanelComponent implements OnInit {
   userinfo:any;
   AvatarChoseType:any=AvatarChoseType;
   constructor(
-    public cacheSrv: CacheService
+    public cacheSrv: CacheService,
+    public userSrv:UserService,
   ) {
     this.cacheSrv.notify("userinfo").subscribe((data)=>{
       this.userinfo=this.cacheSrv.getNone("userinfo");
@@ -22,7 +24,14 @@ export class UserPanelComponent implements OnInit {
   }
 
   choseAvatar(type:AvatarChoseType){
-    console.log(type);
+    if(type==AvatarChoseType.EDIT){
+      //修改的话要上传头像
+      let formData = new FormData();
+      formData.append("file",null,"filename"); 
+      this.userSrv.changeAvatar(type,formData);
+    }else{
+      this.userSrv.changeAvatar(type);
+    }
   }
 
 }

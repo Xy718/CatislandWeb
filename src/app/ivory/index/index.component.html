@@ -1,6 +1,24 @@
 
 <app-top-toolbar></app-top-toolbar>
 
+<nz-affix [nzOffsetTop]="100">
+  <a nz-button
+    nzShape="circle" 
+    nzSize="large" 
+    (click)="donate();"
+    (mouseenter)="this.show_recharge=true"
+    (mouseleave)="this.show_recharge=false"
+    >
+    <i nz-icon [nzIconfont]="'anticonhuaban'" style="font-size: 29px;margin-top: -11px;"></i>
+  </a>
+  <nz-card class="recharge_div" *ngIf="this.show_recharge">
+    <nz-carousel #recharge>
+      <div nz-carousel-content *ngFor="let img of imgs_recharge">
+        <img style="width: 100%;height: 100%;" [src]="img" alt="">
+      </div>
+    </nz-carousel>
+  </nz-card>
+</nz-affix>
 
 
 <div nz-row>
@@ -13,10 +31,5 @@
   </div>
 </div>
 
-<nz-affix [nzOffsetBottom]="100">
-  <a nz-button nzShape="circle" nzSize="large" (click)="donate()">
-    <i nz-icon nzType="money-collect" nzTheme="fill" style="font-size: 29px;margin-top: -9px;"></i>
-  </a>
-</nz-affix>
 
 <app-footer-toolbar></app-footer-toolbar>

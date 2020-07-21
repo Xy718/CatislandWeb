@@ -26,6 +26,8 @@ import { NzPopoverModule } from 'ng-zorro-antd/popover';
 import { NzElementPatchModule } from 'ng-zorro-antd/core/element-patch'
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzCarouselModule } from 'ng-zorro-antd/carousel';
 
 const THIRD_MODULES = [
   MaterialModule,
@@ -47,6 +49,8 @@ const THIRD_MODULES = [
   NzButtonModule,
   NzPopoverModule,
   NzDropDownModule,
+  NzCardModule,
+  NzCarouselModule,
 ];
 const COMPONENTS = [ ErrorCodeComponent];
 const COMPONENTS_DYNAMIC = [];

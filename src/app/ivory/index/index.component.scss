@@ -28,3 +28,23 @@ svg#clouds {
   width: unset!important;
   left:unset!important;
 }
+
+.recharge_div{
+  position: absolute;
+  margin-left: -265px;
+  margin-top: -41px;
+  width: 260px;
+  height: 260px;
+  .ant-carousel {
+    text-align: center;
+    background: #364d79;
+    color: #fff;
+    overflow: hidden;
+    width: 212px!important;
+    height: 212px!important;
+    .slick-dots{
+      display: none!important;
+    }
+  }
+}
+
