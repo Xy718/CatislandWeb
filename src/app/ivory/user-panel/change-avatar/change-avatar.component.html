@@ -1,0 +1,49 @@
+<input type="file" (change)="fileChangeEvent($event)" />
+<br />
+<br />
+
+<nz-button-group>
+<button class="rotate-btn" nz-button nzType="primary" nzShape="circle" (click)="rotateLeft()">
+  <i nz-icon nzType="rotate-left" style="margin-left: 3px;"></i>
+</button>
+<button class="rotate-btn" nz-button nzType="primary" nzShape="circle" (click)="rotateRight()">
+  <i nz-icon nzType="rotate-right" style="margin-left: -3px;"></i>
+</button>
+<button class="rotate-btn" nz-button nzType="primary" nzShape="circle" (click)="flipHorizontal()">
+  <i nz-icon nzType="swap" nzTheme="outline"></i>
+</button>
+<button class="rotate-btn" nz-button nzType="primary" nzShape="circle" (click)="flipVertical()">
+  <i nz-icon nzType="swap" nzRotate="90" nzTheme="outline" style="margin-top: -2px;"></i>
+</button>
+</nz-button-group>
+
+<br />
+<br />
+<button (click)="toggleContainWithinAspectRatio()">{{containWithinAspectRatio?'Fill Aspect Ratio':'Contain Within Aspect Ratio'}}</button>
+<button (click)="resetImage()">Reset image</button>
+<br />
+<br />
+<input [(ngModel)]="rotation" placeholder="Rotation" type="number" (keyup)="updateRotation()" /> <button (click)="zoomOut()">Zoom -</button> <button (click)="zoomIn()">Zoom +</button>
+
+<div>
+    <image-cropper
+        [imageChangedEvent]="imageChangedEvent"
+        [maintainAspectRatio]="true"
+        [containWithinAspectRatio]="containWithinAspectRatio"
+        [aspectRatio]="1"
+        [resizeToWidth]="256"
+        [cropperMinWidth]="128"
+        [onlyScaleDown]="true"
+        [roundCropper]="false"
+        [canvasRotation]="canvasRotation"
+        [transform]="transform"
+        [alignImage]="'left'"
+        [style.display]="showCropper ? null : 'none'"
+        format="png"
+        (imageCropped)="imageCropped($event)"
+        (imageLoaded)="imageLoaded()"
+        (cropperReady)="cropperReady($event)"
+        (loadImageFailed)="loadImageFailed()"
+    ></image-cropper>
+</div>
+<img [src]="croppedImage" [style.border]="croppedImage ? '1px solid black' : 'none'" />

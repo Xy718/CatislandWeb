@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { CacheService } from '@delon/cache';
 import { UserService } from 'src/app/shared/services/user.service';
+import { NzModalService } from 'ng-zorro-antd/modal';
+import { ChangeAvatarComponent } from './change-avatar/change-avatar.component';
 
 @Component({
   selector: 'app-user-panel',
@@ -13,6 +15,8 @@ export class UserPanelComponent implements OnInit {
   constructor(
     public cacheSrv: CacheService,
     public userSrv:UserService,
+    private modalSrv: NzModalService,
+    private viewContainerRef: ViewContainerRef,
   ) {
     this.cacheSrv.notify("userinfo").subscribe((data)=>{
       this.userinfo=this.cacheSrv.getNone("userinfo");
@@ -26,17 +30,35 @@ export class UserPanelComponent implements OnInit {
   choseAvatar(type:AvatarChoseType){
     if(type==AvatarChoseType.EDIT){
       //修改的话要上传头像
-      let formData = new FormData();
-      formData.append("file",null,"filename"); 
-      this.userSrv.changeAvatar(type,formData);
+      // let formData = new FormData();
+      // formData.append("file",null,"filename");
+      // this.userSrv.changeAvatar(type,formData);
+      this.createComponentModal();
     }else{
       this.userSrv.changeAvatar(type);
     }
   }
 
+  createComponentModal(): void {
+    const modal = this.modalSrv.create({
+      nzTitle: '修改头像',
+      nzContent: ChangeAvatarComponent,
+      nzViewContainerRef: this.viewContainerRef,
+      nzGetContainer: () => document.body,
+      nzComponentParams: {
+      },
+      nzOnOk: (component) => component.uploadAvatar(),
+    });
+    modal.updateConfig({
+      nzOkLoading: modal.componentInstance.upLoading
+    });
+    // modal.afterOpen.subscribe(() => console.log('[afterOpen] emitted!'));
+    // Return a result when closed
+    // modal.afterClose.subscribe(result => console.log('[afterClose] The result is:', result));
+  }
 }
 
-enum AvatarChoseType{
+export enum AvatarChoseType{
   EDIT=0,
   REMOVE=1,
 }

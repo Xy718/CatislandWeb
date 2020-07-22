@@ -22,13 +22,16 @@ import { UserPanelComponent } from './user-panel/user-panel.component';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { UserTopicComponent } from './user-panel/user-topic/user-topic.component';
 import { NzAffixModule } from 'ng-zorro-antd/affix';
+import { ChangeAvatarComponent } from './user-panel/change-avatar/change-avatar.component';
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 
 @NgModule({
-  exports:[
+  exports: [
     FontAwesomeModule,
     RouterModule,
-    ReactiveFormsModule,],
+    ReactiveFormsModule,
+  ],
   imports: [
     BrowserModule,
     FontAwesomeModule,
@@ -41,6 +44,7 @@ import { NzAffixModule } from 'ng-zorro-antd/affix';
     ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
     SwiperModule,
     NzAffixModule,
+    ImageCropperModule,
   ],
   declarations: [
     LoginComponent,
@@ -51,6 +55,7 @@ import { NzAffixModule } from 'ng-zorro-antd/affix';
     MainPageComponent,
     UserPanelComponent,
     UserTopicComponent,
+    ChangeAvatarComponent,
   ]
 })
 export class IvoryModule {

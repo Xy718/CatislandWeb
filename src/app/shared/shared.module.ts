@@ -28,6 +28,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzCarouselModule } from 'ng-zorro-antd/carousel';
+import { NzModalModule } from 'ng-zorro-antd/modal';
 
 const THIRD_MODULES = [
   MaterialModule,
@@ -51,6 +52,7 @@ const THIRD_MODULES = [
   NzDropDownModule,
   NzCardModule,
   NzCarouselModule,
+  NzModalModule,
 ];
 const COMPONENTS = [ ErrorCodeComponent];
 const COMPONENTS_DYNAMIC = [];
