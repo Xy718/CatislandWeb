@@ -1,6 +1,12 @@
-<input type="file" (change)="fileChangeEvent($event)" />
+<!-- <input nz-button type="file" (change)="fileChangeEvent($event)" />
 <br />
-<br />
+<br /> -->
+<nz-upload
+  [(nzFileList)]="fileList"
+  [nzBeforeUpload]="beforeUpload"
+  >
+  <button nz-button><i nz-icon nzType="upload"></i>Select File</button>
+</nz-upload>
 
 <nz-button-group>
 <button class="rotate-btn" nz-button nzType="primary" nzShape="circle" (click)="rotateLeft()">
@@ -15,19 +21,24 @@
 <button class="rotate-btn" nz-button nzType="primary" nzShape="circle" (click)="flipVertical()">
   <i nz-icon nzType="swap" nzRotate="90" nzTheme="outline" style="margin-top: -2px;"></i>
 </button>
-</nz-button-group>
+<button nz-button nzType="primary" (click)="resetImage()">
+  Reset image
+</button>
 
-<br />
+</nz-button-group>
+<!-- <button nz-button nzType="primary" nzShape="round" (click)="toggleContainWithinAspectRatio()">{{containWithinAspectRatio?'Fill Aspect Ratio':'Contain Within Aspect Ratio'}}</button> -->
+
+<!-- <br />
 <br />
 <button (click)="toggleContainWithinAspectRatio()">{{containWithinAspectRatio?'Fill Aspect Ratio':'Contain Within Aspect Ratio'}}</button>
 <button (click)="resetImage()">Reset image</button>
-<br />
-<br />
-<input [(ngModel)]="rotation" placeholder="Rotation" type="number" (keyup)="updateRotation()" /> <button (click)="zoomOut()">Zoom -</button> <button (click)="zoomIn()">Zoom +</button>
-
-<div>
+<br /> -->
+<!-- <br />
+<input [(ngModel)]="rotation" placeholder="Rotation" type="number" (keyup)="updateRotation()" /> <button (click)="zoomOut()">Zoom -</button> <button (click)="zoomIn()">Zoom +</button> -->
+<br/>
+<div class="cropper_div">
     <image-cropper
-        [imageChangedEvent]="imageChangedEvent"
+        [imageFile]="this.fileList[0]"
         [maintainAspectRatio]="true"
         [containWithinAspectRatio]="containWithinAspectRatio"
         [aspectRatio]="1"

@@ -93,7 +93,10 @@ export class DefaultInterceptor implements HttpInterceptor {
         }
         break;
       case 400:
-      this.msg.error("参数出现错误:"+event);
+        if (ev instanceof HttpResponse) {
+          console.log(ev)
+          this.msg.error("参数出现错误:"+ev);
+        }
         break;
       case 401:
         if((this.injector.get(DA_SERVICE_TOKEN) as ITokenService).get().token){

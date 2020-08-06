@@ -24,6 +24,7 @@ import { UserTopicComponent } from './user-panel/user-topic/user-topic.component
 import { NzAffixModule } from 'ng-zorro-antd/affix';
 import { ChangeAvatarComponent } from './user-panel/change-avatar/change-avatar.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
+import { NzUploadModule } from 'ng-zorro-antd/upload';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     SwiperModule,
     NzAffixModule,
     ImageCropperModule,
+    NzUploadModule,
   ],
   declarations: [
     LoginComponent,

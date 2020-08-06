@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { CacheService } from '@delon/cache';
-import { UserService } from 'src/app/shared/services/user.service';
+import { UserService, UserAvatarService } from 'src/app/shared/services/user.service';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { ChangeAvatarComponent } from './change-avatar/change-avatar.component';
 
@@ -14,7 +14,7 @@ export class UserPanelComponent implements OnInit {
   AvatarChoseType:any=AvatarChoseType;
   constructor(
     public cacheSrv: CacheService,
-    public userSrv:UserService,
+    public userAvatarSrv:UserAvatarService,
     private modalSrv: NzModalService,
     private viewContainerRef: ViewContainerRef,
   ) {
@@ -35,7 +35,7 @@ export class UserPanelComponent implements OnInit {
       // this.userSrv.changeAvatar(type,formData);
       this.createComponentModal();
     }else{
-      this.userSrv.changeAvatar(type);
+      this.userAvatarSrv.changeAvatar(type);
     }
   }
 
@@ -47,10 +47,11 @@ export class UserPanelComponent implements OnInit {
       nzGetContainer: () => document.body,
       nzComponentParams: {
       },
+      nzWidth:800,
       nzOnOk: (component) => component.uploadAvatar(),
     });
     modal.updateConfig({
-      nzOkLoading: modal.componentInstance.upLoading
+      nzOkLoading: modal.componentInstance.uploading
     });
     // modal.afterOpen.subscribe(() => console.log('[afterOpen] emitted!'));
     // Return a result when closed
