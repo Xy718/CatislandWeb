@@ -3,6 +3,7 @@ import { CacheService } from '@delon/cache';
 import { UserService, UserAvatarService } from 'src/app/shared/services/user.service';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { ChangeAvatarComponent } from './change-avatar/change-avatar.component';
+import { MessageService } from 'src/app/shared/services/message.service';
 
 @Component({
   selector: 'app-user-panel',
@@ -17,6 +18,8 @@ export class UserPanelComponent implements OnInit {
     public userAvatarSrv:UserAvatarService,
     private modalSrv: NzModalService,
     private viewContainerRef: ViewContainerRef,
+    private userSrv:UserService,
+    private msgSrv:MessageService,
   ) {
     this.cacheSrv.notify("userinfo").subscribe((data)=>{
       this.userinfo=this.cacheSrv.getNone("userinfo");
@@ -30,12 +33,18 @@ export class UserPanelComponent implements OnInit {
   choseAvatar(type:AvatarChoseType){
     if(type==AvatarChoseType.EDIT){
       //修改的话要上传头像
-      // let formData = new FormData();
-      // formData.append("file",null,"filename");
-      // this.userSrv.changeAvatar(type,formData);
       this.createComponentModal();
     }else{
-      this.userAvatarSrv.changeAvatar(type);
+      this.userAvatarSrv.changeAvatar(type,null)
+      .pipe()
+      .subscribe((result)=>{
+        console.log(result);
+        //设置用户缓存
+        this.userSrv.getUserSelf().subscribe(data=>{
+          this.cacheSrv.set("userinfo",data.data);
+        });
+        this.msgSrv.success('头像删除成功');
+      });
     }
   }
 
