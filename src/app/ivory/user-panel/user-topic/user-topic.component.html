@@ -1,3 +1,9 @@
-<div *ngFor="let topic of topics">
-  {{topic}}
-</div>
+<nz-row [nzGutter]="10">
+  <nz-col nzSpan="8" *ngFor="let topic of topics">
+      <!-- ,'margin-top':'5px' -->
+    <nz-card nzBordered="true" [nzBodyStyle]="{'padding':'0','height':'100%','display':'flex'}" class="topic_cell">
+      <img [src]="topic.imgs[0]">
+      <i class="pic" nz-icon nzType="picture" nzTheme="fill" style="color:aliceblue"></i>
+    </nz-card>
+  </nz-col>
+</nz-row>

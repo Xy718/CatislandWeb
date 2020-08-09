@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
 import { TopicService } from 'src/app/shared/services/topic.service';
 
 @Component({
@@ -8,6 +8,7 @@ import { TopicService } from 'src/app/shared/services/topic.service';
 })
 export class UserTopicComponent implements OnInit {
   topics;
+
   constructor(
     private topicSrv:TopicService
   ) {
@@ -17,6 +18,7 @@ export class UserTopicComponent implements OnInit {
     .subscribe((result:any)=>{
       if(result.code=='0'){
         this.topics=result.data.content;
+        console.log(this.topics)
       }
     });
   }
